@@ -3,8 +3,28 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-  
+    <div className="App container-fluid">
+      <header className="row">
+        <nav className="col-12">
+          <div className="border">Header</div>
+        </nav>
+      </header>
+      <section className="row">
+        <div className="col-12">
+          <div className="border">Heading title</div>
+        </div>
+      </section>
+      <section className="row">
+        <div className="col-12 col-lg-4">
+          <div className="border"> Instant search</div>
+        </div>
+        <div className="col-12 col-md-6 col-lg-4">
+          <div className="border"> Interactive map</div>
+        </div>
+        <div className="col-12 col-md-6 col-lg-4">
+          <div className="border"> Button search by geolocation</div>
+        </div>
+      </section>
     </div>
   );
 }
