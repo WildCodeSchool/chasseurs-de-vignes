@@ -6,6 +6,7 @@
     "autocomplete": "0.0.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
+    "react-fontawesome": "^1.6.1",
     "react-scripts": "3.2.0"
   },
   "scripts": {
