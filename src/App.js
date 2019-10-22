@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import GeoLocation from './components/GeoLocButton';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
           <div className="border"> Interactive map</div>
         </div>
         <div className="col-12 col-md-6 col-lg-4">
-          <div className="border"> Button search by geolocation</div>
+          <div className="border"> <GeoLocation /> </div>
         </div>
       </section>
     </div>
