@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Header from './components/Header'
+import Autosugg from './components/SearchBar';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       </section>
       <section className="row">
         <div className="col-12 col-lg-4">
-          <div className="border"> Instant search</div>
+          <div className="border">    <Autosugg /></div>
         </div>
         <div className="col-12 col-md-6 col-lg-4">
           <div className="border"> Interactive map</div>
@@ -22,6 +23,7 @@ function App() {
           <div className="border"> Button search by geolocation</div>
         </div>
       </section>
+   
     </div>
   );
 }
