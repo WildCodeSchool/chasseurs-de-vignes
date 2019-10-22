@@ -1,14 +1,11 @@
 import React from 'react';
 import './App.css';
+import Header from './components/Header'
 
 function App() {
   return (
     <div className="App container-fluid">
-      <header className="row">
-        <nav className="col-12">
-          <div className="border">Header</div>
-        </nav>
-      </header>
+      <Header />
       <section className="row">
         <div className="col-12">
           <div className="border">Heading title</div>
