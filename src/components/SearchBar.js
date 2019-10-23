@@ -1,37 +1,43 @@
 import Autosuggest from 'react-autosuggest';
 import React from 'react'
 import './css/SearchBar.css'
-
-let AOC = ['exemple','exemple 2', 'exemple 3', 'exemple 4', 'exemple 5', 'exemple 6']
-
-const getSuggestions = value => {
-  const inputValue = value.trim().toLowerCase();
-  const inputLength = inputValue.length;
-  return inputLength === 0 ? [] : AOC.filter(region =>
-    region.toLowerCase().slice(0, inputLength) === inputValue
-  );
-};
-
-const getSuggestionValue = suggestion => suggestion;
-
-
+import axios from 'axios';
+ 
 const renderSuggestion = suggestion => (
   <div className="SearchBar--suggestion">
     {suggestion}
   </div>
 );
 
-class Autosugg extends React.Component {
-  constructor() {
-    super();
-
+class SearchBar extends React.Component {
+  constructor(props) {
+    super(props);
     this.state = {
       value: '',
-      suggestions: []
+      suggestions: [],
+      aoc : [],
     };
+    this.getAoc = this.getAoc.bind(this)
   }
+  async getAoc(){
+    const response = await axios.get('https://plateforme.api-agro.fr/api/records/1.0/search/?dataset=delimitation-parcellaire-des-aoc-viticoles&facet=appellatio&facet=denominati&facet=crinao');
+      this.setState({
+        aoc : response.data.records
+      });
+  };
+    
+  getSuggestions(value) {
+    const inputValue = value.trim().toLowerCase();
+    const inputLength = inputValue.length;
+    return inputLength === 0 ? [] : this.state.aoc.filter(region =>
+      region.toLowerCase().slice(0, inputLength) === inputValue
+    );
+  };
+  getSuggestionValue = suggestion => suggestion;
+
 
   onChange = (event, { newValue }) => {
+    this.getAoc()
     this.setState({
       value: newValue
     });
@@ -40,7 +46,7 @@ class Autosugg extends React.Component {
 
   onSuggestionsFetchRequested = ({ value }) => {
     this.setState({
-      suggestions: getSuggestions(value)
+      suggestions: this.getSuggestions(value)
     });
   };
 
@@ -65,7 +71,7 @@ class Autosugg extends React.Component {
         suggestions={suggestions}
         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
         onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-        getSuggestionValue={getSuggestionValue}
+        getSuggestionValue={this.getSuggestionValue}
         renderSuggestion={renderSuggestion}
         inputProps={inputProps}
       />
@@ -75,4 +81,4 @@ class Autosugg extends React.Component {
 
 
 
-export default Autosugg
+export default SearchBar
