@@ -70,14 +70,21 @@ class SearchBar extends React.Component {
       };
 
     return (
-      <Autosuggest
-        suggestions={suggestions}
-        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-        getSuggestionValue={this.getSuggestionValue}
-        renderSuggestion={renderSuggestion}
-        inputProps={inputProps}
-      />
+      <div>
+        <form onSubmit={event => console.log('Ok')}>
+          <label htmlFor="AOC_Searched">AOC Recherchée</label>
+          <Autosuggest
+            id = "AOC_Searched"
+            suggestions={suggestions}
+            onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+            onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+            getSuggestionValue={this.getSuggestionValue}
+            renderSuggestion={renderSuggestion}
+            inputProps={inputProps}
+          />
+          <button type="submit">submit</button>
+        </form>
+      </div>
     );
   }
 }
