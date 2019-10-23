@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Header from './components/Header'
-import SearchBar from './components/SearchBar2';
+import SearchBar from './components/SearchBar';
 
 class App extends React.Component{
   constructor(props){
