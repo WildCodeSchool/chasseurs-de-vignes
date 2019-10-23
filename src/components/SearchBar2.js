@@ -14,13 +14,9 @@ const languages = [
   },
 ];
 
-
-
-
-
 const renderSuggestion = suggestion => (
   <div>
-    {suggestion.name}
+    {suggestion}
   </div>
 );
 
@@ -35,21 +31,13 @@ class SearchBar extends React.Component {
     }
     async componentDidMount(){
         const response = await axios.get('https://plateforme.api-agro.fr/api/records/1.0/search/?dataset=delimitation-parcellaire-des-aoc-viticoles&facet=appellatio&facet=denominati&facet=crinao')
-        console.log(response.data.records)
         this.setState({
          aoc : response.data.records
     })
     }
-    getSuggestions = value => {
-      const inputValue = value.trim().toLowerCase();
-      const inputLength = inputValue.length;
-      return inputLength === 0 ? [] : languages.filter(lang =>
-        lang.name.toLowerCase().slice(0, inputLength) === inputValue
-      );
-    };
+
     goodValue(){
       return this.state.aoc.map((region) => { 
-        console.log(region.fields.appellatio)
         return region.fields.appellatio
       }
       )}
@@ -59,30 +47,39 @@ class SearchBar extends React.Component {
         value: newValue
       });
       this.goodValue()
-      console.log(this.goodValue(this.state.aoc))
     };
 
   
 
-  onSuggestionsFetchRequested = ({ value }) => {
-    this.setState({
-      suggestions: this.getSuggestions(value)
-    });
-  };
-
-  onSuggestionsClearRequested = () => {
-    this.setState({
-      suggestions: []
-    });
-  };
-  getSuggestionValue = suggestion => suggestion.name;
-  render() {
-    const { value, suggestions } = this.state;
-    const inputProps = {
-      placeholder: 'Tape ton AOC',
-      value,
-      onChange: this.onChange
+    onSuggestionsFetchRequested = ({ value }) => {
+      this.setState({
+        suggestions: this.getSuggestions(value)
+      });
     };
+
+    // Need to work on it => set up good values
+    getSuggestions = value => {
+      const inputValue = value.trim().toLowerCase();
+      const inputLength = inputValue.length;
+      return inputLength === 0 ? [] : this.goodValue(this.state.aoc).filter(lang =>
+        lang.toLowerCase().slice(0, inputLength) === inputValue
+      );
+    };
+
+    onSuggestionsClearRequested = () => {
+      this.setState({
+        suggestions: []
+      });
+    };
+    getSuggestionValue = suggestion => suggestion;
+
+    render() {
+      const { value, suggestions } = this.state;
+      const inputProps = {
+        placeholder: 'Tape ton AOC',
+        value,
+        onChange: this.onChange
+      };
 
     return (
       <Autosuggest
