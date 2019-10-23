@@ -10,7 +10,7 @@ class Map extends React.Component {
 
  
   render() {
-    return <SVGMap map={France} />;
+    return <SVGMap map={France} onLocationClick={event => console.log(event.target.getAttribute('name'))} />;
   }
 }
  
