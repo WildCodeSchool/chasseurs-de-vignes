@@ -2,7 +2,7 @@ import React from "react";
 import { geolocated } from "react-geolocated";
 import DisplayAoc from "./DisplayAoc";
 
-class DisplayPosition extends React.Component {
+class GeoButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,15 +11,17 @@ class DisplayPosition extends React.Component {
     };
     this.getPosition = this.getPosition.bind(this);
   }
+  
   getPosition() {
     this.setState({
       latitude: this.props.coords.latitude,
       longitude: this.props.coords.longitude
     });
   }
+
   render() {
     return (
-      <div>
+      <div className="GeoButton">
         <button onClick={this.getPosition} className="positionButton">
           Me géolocatiser
         </button>
@@ -36,4 +38,4 @@ class DisplayPosition extends React.Component {
   }
 }
 
-export default geolocated()(DisplayPosition);
+export default geolocated()(GeoButton);

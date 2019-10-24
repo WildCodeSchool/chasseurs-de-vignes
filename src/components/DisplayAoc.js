@@ -18,8 +18,10 @@ class displayAoc extends React.Component {
       this.props.latitude
     }%2C${this.props.longitude}%2C${50000}`;
     const response = await axios.get(url);
-    this.setState({ infos: response.data.records });
-    this.setState({ total: response.data.nhits });
+    this.setState({ 
+      infos: response.data.records, 
+      total: response.data.nhits 
+    })
   }
 
   async getData() {
@@ -28,18 +30,11 @@ class displayAoc extends React.Component {
       this.props.latitude
     }%2C${this.props.longitude}%2C${50000}`;
     const response = await axios.get(url);
-    console.log(response);
-    this.setState({ infos: response.data.records });
-    this.setState({ total: response.data.nhits });
+    this.setState({ 
+      infos: response.data.records, 
+      total: response.data.nhits 
+    })
   }
-
-  nextcountStart = () => {
-    const countStart = this.state.countStart;
-    this.setState({
-      countStart: countStart + 10
-    });
-    this.getData();
-  };
 
   render() {
     let myLatitude = this.props.latitude;
@@ -63,14 +58,13 @@ class displayAoc extends React.Component {
         };
         return obj;
       }
-    });
+    })
 
     return (
-      <div>
-        <hr />
-        {this.state.countStart + 10} / {this.state.total}
-        <button onClick={this.nextcountStart}>next</button>
-        <hr />
+      <div className="DisplayAoc">
+        <hr/>
+        <p>{this.state.total} résultats</p>
+        <hr/>
         <ul>
           {createObjAoc.map(aoc => (
             <li key={aoc.id_app}>

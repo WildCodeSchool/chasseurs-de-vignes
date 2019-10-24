@@ -1,9 +1,12 @@
 import React from "react";
 import "./App.css";
 import Header from "./components/Header";
-import DisplayPosition from "./components/DisplayPosition";
+import GeoButton from "./components/GeoButton";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <div className="App container-fluid">
@@ -22,7 +25,7 @@ class App extends React.Component {
           </div>
           <div className="col-12 col-md-6 col-lg-4">
             <div className="border">
-              <DisplayPosition />
+              <GeoButton />
             </div>
           </div>
         </section>
