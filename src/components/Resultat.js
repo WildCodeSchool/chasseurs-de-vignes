@@ -4,7 +4,7 @@ class Resultat extends React.Component{
     render(){
         return( 
             <div>
-                halo
+                Hallo
             </div>
         )
     }

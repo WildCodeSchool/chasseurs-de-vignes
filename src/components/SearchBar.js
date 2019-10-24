@@ -29,7 +29,7 @@ class SearchBar extends React.Component {
 
 
   async getValue(value = this.state.value){
-      const response = await axios.get(`https://plateforme.api-agro.fr/api/records/1.0/search/?dataset=delimitation-parcellaire-des-aoc-viticoles&facet=appellatio&facet=denominati&facet=crinao`)
+      const response = await axios.get(`https://plateforme.api-agro.fr/api/records/1.0/search/?dataset=delimitation-parcellaire-des-aoc-viticoles&q=${this.state.value}&facet=appellatio&facet=denominati&facet=crinao`)
       this.setState({aoc : response.data.records, value})
   }
 
@@ -58,8 +58,9 @@ class SearchBar extends React.Component {
   getSuggestions = value => {
     const inputValue = value.trim().toLowerCase();
     const inputLength = inputValue.length;
-    return inputLength === 0 ? [] : this.goodValue(this.state.aoc).filter(lang =>
-      lang.toLowerCase().slice(0, inputLength) === inputValue
+    console.log(this.state.aoc)
+    return inputLength === 0 ? [] : this.goodValue(this.state.aoc).filter(region =>
+      region.toLowerCase().slice(0, inputLength) === inputValue
     );
   };
 
@@ -69,9 +70,6 @@ class SearchBar extends React.Component {
     });
   };
   getSuggestionValue = suggestion => suggestion;
-  
-  
-
   render() {
     const { value, suggestions } = this.state;
     const inputProps = {
@@ -86,7 +84,7 @@ class SearchBar extends React.Component {
           <label htmlFor="AOC_Searched">AOC Recherchée</label>
           <Autosuggest
             name = "AOC_Searched"
-            id = "AOC_Searched"z
+            id = "AOC_Searched"
             suggestions={suggestions}
             onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
             onSuggestionsClearRequested={this.onSuggestionsClearRequested}
