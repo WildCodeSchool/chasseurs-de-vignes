@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import Header from "./components/Header";
 import GeoButton from "./components/GeoButton";
+import Map from './components/Map';
 
 class App extends React.Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class App extends React.Component {
             <div className="border"> Instant search</div>
           </div>
           <div className="col-12 col-md-6 col-lg-4">
-            <div className="border"> Interactive map</div>
+            <div className="border"> Interactive map <Map /></div>
           </div>
           <div className="col-12 col-md-6 col-lg-4">
             <div className="border">
