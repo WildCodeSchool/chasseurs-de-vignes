@@ -8,10 +8,10 @@ class Navbar extends React.Component {
             <div className="Navbar">
                 <ul className="Navbar-group">
                     <li className="Navbar-group-item">
-                        <a href="#">Accueil</a>
+
                     </li>
                     <li className="Navbar-group-item">
-                        <a href="#">À propos</a>
+
                     </li>
                 </ul>
             </div>
