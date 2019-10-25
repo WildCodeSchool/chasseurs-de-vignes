@@ -2,7 +2,7 @@ import Autosuggest from 'react-autosuggest';
 import React from 'react';
 import './css/SearchBar.css'
 import axios from 'axios';
-import Resultat from './Resultat';
+import Results from './Results';
 
 const renderSuggestion = suggestion => (
   <div>
@@ -44,6 +44,7 @@ class SearchBar extends React.Component {
   }
 
   onChange = (event, { newValue }) => {
+    console.log(this.state.aoc)
     this.setState({
       value: newValue
     });
@@ -58,7 +59,6 @@ class SearchBar extends React.Component {
   getSuggestions = value => {
     const inputValue = value.trim().toLowerCase();
     const inputLength = inputValue.length;
-    console.log(this.state.aoc)
     return inputLength === 0 ? [] : this.goodValue(this.state.aoc).filter(region =>
       region.toLowerCase().slice(0, inputLength) === inputValue
     );
@@ -71,11 +71,12 @@ class SearchBar extends React.Component {
   };
   getSuggestionValue = suggestion => suggestion;
   render() {
-    const { value, suggestions } = this.state;
+    const { value, suggestions, aoc } = this.state;
     const inputProps = {
       placeholder: 'Tape ton AOC',
       value,
-      onChange: this.onChange
+      onChange: this.onChange,
+      aoc
     };
 
     return (
@@ -94,7 +95,7 @@ class SearchBar extends React.Component {
           />
           <button type="submit">submit</button>
         </form>
-        {this.state.hasSubmitted && <Resultat />}
+    {this.state.hasSubmitted && <Results result={value} nomCom={aoc[0].fields.new_nomcom}/>}
       </div>
     );
   }

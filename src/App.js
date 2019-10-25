@@ -4,13 +4,6 @@ import Header from './components/Header'
 import SearchBar from './components/SearchBar';
 
 class App extends React.Component{
-  constructor(props){
-    super(props)
-    this.state = {
-      aoc : ''    
-    }
-
-  }
   render(){
     return (
       <div className="App container-fluid">
