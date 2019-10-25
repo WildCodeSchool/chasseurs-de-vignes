@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import SearchBar from './components/SearchBar';
 import Map from './components/Map';
 import GeoButton from "./components/GeoButton";
+import ImageRandom from "./components/ImagesRandom"
 
 class App extends React.Component {
   constructor(props) {
@@ -20,10 +21,16 @@ class App extends React.Component {
         </section>
         <section className="row">
           <div className="col-12 col-lg-4">
-            <div className="border"> <SearchBar /></div>
+            <div className="border">
+              {" "}
+              <SearchBar />
+            </div>
           </div>
           <div className="col-12 col-md-6 col-lg-4">
-            <div className="border"> Interactive map <Map /></div>
+            <div className="border">
+              {" "}
+              Interactive map <Map />
+            </div>
           </div>
           <div className="col-12 col-md-6 col-lg-4">
             <div className="border">
@@ -31,6 +38,10 @@ class App extends React.Component {
             </div>
           </div>
         </section>
+        <ImageRandom />
+        <ImageRandom />
+        <ImageRandom />
+        <ImageRandom />
       </div>
     );
   }
