@@ -4,7 +4,8 @@ import Header from "./components/Header";
 import SearchBar from './components/SearchBar';
 import Map from './components/Map';
 import GeoButton from "./components/GeoButton";
-import ImageRandom from "./components/ImagesRandom"
+import ImagesRandom from "./components/ImagesRandom";
+import DisplayResults from "./components/DisplayResults";
 
 class App extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class App extends React.Component {
     return (
       <div className="App container-fluid">
         <Header />
-        <section className="row">
+        {/* <section className="row">
           <div className="col-12">
             <div className="border">Heading title</div>
           </div>
@@ -37,11 +38,8 @@ class App extends React.Component {
               <GeoButton />
             </div>
           </div>
-        </section>
-        <ImageRandom />
-        <ImageRandom />
-        <ImageRandom />
-        <ImageRandom />
+        </section> */}
+        <DisplayResults />
       </div>
     );
   }
