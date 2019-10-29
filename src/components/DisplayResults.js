@@ -1,11 +1,11 @@
-import React from "react";
+import React, {Component} from "react";
 import "./DisplayResults.css";
 import axios from "axios";
 import PageNavigation from "./PageNavigation";
 import { getDistance } from "geolib";
-import ImagesRandom from "./ImagesRandom";
+import RandomImage from "./RandomImage";
 
-class Results extends React.Component {
+class Results extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,34 +18,18 @@ class Results extends React.Component {
       results: {},
       totalResults: 0,
       totalPages: 0,
-      currentStart: 0
+      currentStart: 0,
+      isLoading: true
     };
   }
 
   componentDidMount() {
-    this.refreshPosition();
+    this.fetchAocs(0);
   }
 
-  refreshPosition = () => {
-    const { latitude } = this.props.coords;
-    const { longitude } = this.props.coords;
-    this.setState(
-      {
-        coords: {
-          latitude,
-          longitude
-        }
-      },
-      () => {
-        this.aocResults(0);
-      }
-    );
-  };
-
-  aocResults = (updatedPageNo = "") => {
+  fetchAocs = (updatedPageNo = "") => {
     const pageNumber = updatedPageNo ? updatedPageNo : "";
-    const { latitude } = this.state.coords;
-    const { longitude } = this.state.coords;
+    const { latitude,longitude } = this.props.coords;
     const { radius } = this.state;
     const pathUrl = `https://plateforme.api-agro.fr/api/records/1.0/search/?dataset=delimitation-parcellaire-des-aoc-viticoles`;
     const paramsUrl = `${pathUrl}&rows=12&start=${pageNumber}&geofilter.distance=${latitude}%2C${longitude}%2C${radius}`;
@@ -68,8 +52,7 @@ class Results extends React.Component {
 
   renderResults = () => {
     const { results } = this.state;
-    const { latitude } = this.state.coords;
-    const { longitude } = this.state.coords;
+    const { latitude, longitude } = this.props.coords;
     if (Object.keys(results).length && results.length) {
       return (
         <div className="row DisplayResults">
@@ -89,13 +72,13 @@ class Results extends React.Component {
                 key={result.fields.id}
               >
                 <div className="DisplayResults-km">{distance} km</div>
-                <ImagesRandom />
+                <RandomImage />
                 <div className="DisplayResults-infos">
                   <h3 className="DisplayResults-infos-title">
                     AOC {result.fields.denominati}
                   </h3>
                   <p className="DisplayResults-infos-desc">
-                    {result.fields.new_nomcom}
+                    {result.fields.new_nomcom.toUpperCase()}
                   </p>
                 </div>
               </div>
@@ -117,14 +100,13 @@ class Results extends React.Component {
       "prev" === type
         ? this.state.currentStart - this.state.data.parameters.rows
         : this.state.currentStart + this.state.data.parameters.rows;
-    this.aocResults(updatedPageNo, this.state.query);
+    this.fetchAocs(updatedPageNo, this.state.query);
   };
 
   render() {
     const { currentStart, totalResults } = this.state;
     const showPrevLink = 1 < currentStart;
-    const showNextLink =
-      totalResults > currentStart && totalResults - currentStart !== 10;
+    const showNextLink = totalResults > currentStart;
     return (
       <div className="Results">
         <PageNavigation

@@ -12,7 +12,7 @@ class ImagesRandom extends React.Component{
     let number4 = Math.floor(Math.random() * Math.floor(this.images.length));
     return (
       <div className="ImagesRandom">
-        <div class="ImagesRandom-image">
+        <div className="ImagesRandom-image">
           <img
             src={`https://source.unsplash.com/600x400/?${this.images[number1]},${this.images[number2]},${this.images[number3]},${this.images[number4]}`}
             alt="images random"
