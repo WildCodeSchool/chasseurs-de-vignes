@@ -1,41 +1,41 @@
 import React from "react";
-import { geolocated } from "react-geolocated";
-import DisplayAoc from "./DisplayAoc";
 
 class GeoButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      latitude: 0,
-      longitude: 0
-    };
-    this.getPosition = this.getPosition.bind(this);
+      coords: {
+        latitude: 0,
+        longitude: 0
+      }
+    }
   }
-  
-  getPosition() {
-    this.setState({
-      latitude: this.props.coords.latitude,
-      longitude: this.props.coords.longitude
-    });
-  }
-
+  getPosition = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        const { latitude } = position.coords;
+        const { longitude } = position.coords;
+          this.setState({
+            coords: { 
+              latitude,
+              longitude
+            }
+          });
+          this.props.afterClick({ latitude, longitude });
+      });
+    } else {
+      alert("Geolocation is not supported by this browser");
+    }
+  };  
+    
   render() {
+      
     return (
       <div className="GeoButton">
-        <button onClick={this.getPosition} className="positionButton">
-          Me géolocatiser
-        </button>
-        {this.state.latitude && this.state.longitude ? (
-          <DisplayAoc
-            latitude={this.state.latitude}
-            longitude={this.state.longitude}
-          />
-        ) : (
-          ""
-        )}
+      <button onClick={this.getPosition}>Locate me</button>
       </div>
     );
   }
 }
 
-export default geolocated()(GeoButton);
+export default GeoButton;

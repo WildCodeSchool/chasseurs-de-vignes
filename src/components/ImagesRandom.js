@@ -14,7 +14,7 @@ class ImagesRandom extends React.Component{
       <div className="ImagesRandom">
         <div class="ImagesRandom-image">
           <img
-            src={`https://source.unsplash.com/800x600/?${this.images[number1]},${this.images[number2]},${this.images[number3]},${this.images[number4]}`}
+            src={`https://source.unsplash.com/600x400/?${this.images[number1]},${this.images[number2]},${this.images[number3]},${this.images[number4]}`}
             alt="images random"
           />
         </div>
