@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Header from './components/Header'
+import Map from './components/Map'
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
           <div className="border"> Instant search</div>
         </div>
         <div className="col-12 col-md-6 col-lg-4">
-          <div className="border"> Interactive map</div>
+          <div className="border"> Interactive map <Map/></div>
         </div>
         <div className="col-12 col-md-6 col-lg-4">
           <div className="border"> Button search by geolocation</div>

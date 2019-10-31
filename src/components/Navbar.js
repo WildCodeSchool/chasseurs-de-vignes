@@ -4,14 +4,14 @@ class Navbar extends React.Component {
     render() {
         return ( 
             <div>
-            <i id="open-menu" class="fa fa-bars"></i>
+            <i id="open-menu" className="fa fa-bars"></i>
             <div className="Navbar">
                 <ul className="Navbar-group">
                     <li className="Navbar-group-item">
-                        <a href="">Accueil</a>
+                        <a href="./index.html">Accueil</a>
                     </li>
                     <li className="Navbar-group-item">
-                        <a href="">À propos</a>
+                        <a href="./index.html">À propos</a>
                     </li>
                 </ul>
             </div>
