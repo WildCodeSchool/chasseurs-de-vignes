@@ -1,24 +1,34 @@
-import React from "react";
+import React, { Component } from "react";
 import "./Header.css";
 import Logo from "../Logo/Logo";
 import Navbar from "../Navbar";
 
-class Header extends React.Component {
+class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isMobile: false
     };
+    this.toggleMenu = this.toggleMenu.bind(this)
+  }
+  
+  toggleMenu(isMobile) {
+    this.setState({
+      isMobile
+    })
   }
 
-    render() {
-    const { isMobile } = this.state
+  render() {
+    const { isMobile } = this.state;
     return (
       <header className="row">
         <div className="col-12 no-padding">
           <div className={isMobile ? "Header Header--mobile" : "Header"}>
             <Logo />
-            <Navbar onBurgerButton={(isMobile) => this.setState({ isMobile })} isMobile={isMobile} />
+            <Navbar
+              onBurgerButton={this.toggleMenu}
+              isMobile={isMobile}
+            />
           </div>
         </div>
       </header>
