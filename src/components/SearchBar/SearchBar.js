@@ -2,7 +2,7 @@ import Autosuggest from 'react-autosuggest';
 import React from 'react';
 import './SearchBar.css'
 import axios from 'axios';
-import Results from '../Results';
+import Results from '../Results/Results';
 
 const renderSuggestion = suggestion => (
   <div>

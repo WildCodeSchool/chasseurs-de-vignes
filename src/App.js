@@ -4,7 +4,7 @@ import Header from "./components/Header/Header";
 import SearchBar from "./components/SearchBar/SearchBar";
 import Map from "./components/Map";
 import GeoButton from "./components/GeoButton";
-import DisplayResults from "./components/DisplayResults";
+import Results from "./components/Results/Results";
 
 class App extends Component {
   constructor(props) {
@@ -37,7 +37,7 @@ class App extends Component {
           </div>
         </section>
         {coords.latitude && (
-          <DisplayResults coords={coords} />
+          <Results coords={coords} />
         )}
       </div>
     );
