@@ -1,30 +1,47 @@
-import React from 'react';
-import './App.css';
-import Header from './components/Header'
-import Map from './components/Map'
+import React, { Component } from "react";
+import "./App.css";
+import Header from "./components/Header/Header";
+import SearchBar from "./components/SearchBar/SearchBar";
+import Map from "./components/Map";
+import GeoButton from "./components/GeoButton";
+import Results from "./components/Results/Results";
 
-function App() {
-  return (
-    <div className="App container-fluid">
-      <Header />
-      <section className="row">
-        <div className="col-12">
-          <div className="border">Heading title</div>
-        </div>
-      </section>
-      <section className="row">
-        <div className="col-12 col-lg-4">
-          <div className="border"> Instant search</div>
-        </div>
-        <div className="col-12 col-md-6 col-lg-4">
-          <div className="border"> Interactive map <Map/></div>
-        </div>
-        <div className="col-12 col-md-6 col-lg-4">
-          <div className="border"> Button search by geolocation</div>
-        </div>
-      </section>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      coords: {
+        latitude: null,
+        longitude: null
+      }
+    };
+    this.setCoords = this.setCoords.bind(this)
+  }
+
+  setCoords(coords) {
+    this.setState({
+      coords
+    })
+  }
+
+  render() {
+    const { coords } = this.state
+    return (
+      <div className="App container-fluid">
+        <Header />
+        <section className="row">
+          <div className="col-12 col-lg-4"><SearchBar /></div>
+          <div className="col-12 col-md-6 col-lg-4"><Map /></div>
+          <div className="col-12 col-md-6 col-lg-4">
+            <GeoButton afterClick={this.setCoords} />
+          </div>
+        </section>
+        {coords.latitude && (
+          <Results coords={coords} />
+        )}
+      </div>
+    );
+  }
 }
 
 export default App;
