@@ -3,14 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "autocomplete": "0.0.1",
     "axios": "^0.19.0",
     "react": "^16.10.2",
+    "react-autosuggest": "^9.4.3",
     "react-dom": "^16.10.2",
     "react-fontawesome": "^1.6.1",
     "react-scripts": "3.2.0"
   },
   "scripts": {
+    "format": "prettier",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -30,5 +31,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-plugin-react": "^7.16.0"
   }
 }

@@ -1,32 +1,32 @@
-import React from 'react';
-import './App.css';
-import Header from './components/Header'
-import SearchBar from './components/SearchBar';
+import React from "react";
+import "./App.css";
+import Header from "./components//Header/Header";
+import SearchBar from "./components/SearchBar/SearchBar";
 
-class App extends React.Component{
-  render(){
-    return (
-      <div className="App container-fluid">
-        <Header />
-        <section className="row">
-          <div className="col-12">
-            <div className="border">Heading title</div>
+function App() {
+  return (
+    <div className="App container-fluid">
+      <Header />
+      <section className="row">
+        <div className="col-12">
+          <div className="border">Heading title</div>
+        </div>
+      </section>
+      <section className="row">
+        <div className="col-12 col-lg-4">
+          <div className="border">
+            {" "}
+            <SearchBar />{" "}
           </div>
-        </section>
-        <section className="row">
-          <div className="col-12 col-lg-4">
-            <div className="border"> <SearchBar/> </div>
-          </div>
-          <div className="col-12 col-md-6 col-lg-4">
-            <div className="border"> Interactive map</div>
-          </div>
-          <div className="col-12 col-md-6 col-lg-4">
-            <div className="border"> Button search by geolocation</div>
-          </div>
-        </section>
-      </div>
-    )
-  }
- 
+        </div>
+        <div className="col-12 col-md-6 col-lg-4">
+          <div className="border"> Interactive map</div>
+        </div>
+        <div className="col-12 col-md-6 col-lg-4">
+          <div className="border"> Button search by geolocation</div>
+        </div>
+      </section>
+    </div>
+  );
 }
 export default App;
