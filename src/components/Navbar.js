@@ -1,12 +1,31 @@
-import React from "react";
+import React, { Component } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 
-class Navbar extends React.Component {
+class Navbar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isMobile: false
+    };
+    this.getMenuMobile = this.getMenuMobile.bind(this)
+  }
+
+  getMenuMobile() {
+    const showMenu = !this.state.isMobile
+    this.setState({
+      isMobile:showMenu
+    })
+    this.props.isMobile(showMenu);
+  }
+
   render() {
+    const { isMobile } = this.state
     return (
       <div>
-        <i id="open-menu" className="fa fa-bars"></i>
+        <FontAwesomeIcon onClick={this.getMenuMobile} id="open-menu" icon={isMobile ? faTimes : faBars} />
         <div className="Navbar">
-          <ul className="Navbar-group">
+          <ul className={isMobile ? "Navbar-group Navbar-group--mobile" : "Navbar-group"}>
             <li className="Navbar-group-item">
               <a href="/public/index.html">Accueil</a>
             </li>
@@ -15,19 +34,6 @@ class Navbar extends React.Component {
             </li>
           </ul>
         </div>
-        <script>
-          {document.addEventListener("DOMContentLoaded", () => {
-            const clickBurger = document.querySelector("#open-menu");
-            const header = document.querySelector(".Header");
-            const openMenu = document.querySelector(".Navbar-group");
-            clickBurger.addEventListener("click", () => {
-              header.classList.toggle("Header--mobile");
-              openMenu.classList.toggle("Navbar-group--mobile");
-              clickBurger.classList.toggle("fa-bars");
-              clickBurger.classList.toggle("fa-times");
-            });
-          })}
-        </script>
       </div>
     );
   }
