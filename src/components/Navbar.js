@@ -15,7 +15,7 @@ class Navbar extends Component {
   render() {
     const { isMobile } = this.props
     return (
-      <div>
+      <div className="Navbar">
         <FontAwesomeIcon onClick={this.getMenuMobile} id="open-menu" icon={isMobile ? faTimes : faBars} />
         <div className="Navbar">
           <ul className={isMobile ? "Navbar-group Navbar-group--mobile" : "Navbar-group"}>
@@ -28,7 +28,7 @@ class Navbar extends Component {
           </ul>
         </div>
       </div>
-    );
+    )
   }
 }
 export default Navbar;
