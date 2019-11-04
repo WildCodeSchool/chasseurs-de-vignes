@@ -1,5 +1,6 @@
 import React from "react";
-export default props => {
+
+const PageNavigation = props => {
   const {
     showPrevLink,
     showNextLink,
@@ -7,6 +8,7 @@ export default props => {
     handleNextClick,
     loading
   } = props;
+
   return (
     <div className="PageNavigation">
       <button
@@ -30,3 +32,5 @@ export default props => {
     </div>
   );
 };
+
+export default PageNavigation;
