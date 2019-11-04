@@ -5,22 +5,15 @@ import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 class Navbar extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isMobile: false
-    };
     this.getMenuMobile = this.getMenuMobile.bind(this)
   }
 
   getMenuMobile() {
-    const showMenu = !this.state.isMobile
-    this.setState({
-      isMobile:showMenu
-    })
-    this.props.isMobile(showMenu);
+    this.props.onBurgerButton(!this.props.isMobile);
   }
 
   render() {
-    const { isMobile } = this.state
+    const { isMobile } = this.props
     return (
       <div>
         <FontAwesomeIcon onClick={this.getMenuMobile} id="open-menu" icon={isMobile ? faTimes : faBars} />

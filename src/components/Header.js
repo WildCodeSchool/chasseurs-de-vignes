@@ -9,13 +9,6 @@ class Header extends React.Component {
     this.state = {
       isMobile: false
     };
-    this.getMenuMobile = this.getMenuMobile.bind(this);
-  }
-
-  getMenuMobile(showMenu) {
-    this.setState({
-        isMobile: showMenu
-    });
   }
 
     render() {
@@ -25,7 +18,7 @@ class Header extends React.Component {
         <div className="col-12 no-padding">
           <div className={isMobile ? "Header Header--mobile" : "Header"}>
             <Logo />
-            <Navbar isMobile={(showMenu) => this.getMenuMobile(showMenu)} />
+            <Navbar onBurgerButton={(isMobile) => this.setState({ isMobile })} isMobile={isMobile} />
           </div>
         </div>
       </header>
