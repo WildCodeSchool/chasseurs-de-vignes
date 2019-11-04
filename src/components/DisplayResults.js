@@ -23,18 +23,18 @@ class Results extends Component {
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.fetchAocs(0);
   }
 
-  fetchAocs = (updatedPageNo = "") => {
+  async fetchAocs(updatedPageNo = ""){
     const pageNumber = updatedPageNo ? updatedPageNo : "";
     const { latitude, longitude } = this.props.coords;
     const { radius } = this.state;
     const pathUrl = `https://plateforme.api-agro.fr/api/records/1.0/search/?dataset=delimitation-parcellaire-des-aoc-viticoles`;
     const paramsUrl = `${pathUrl}&rows=12&start=${pageNumber}&geofilter.distance=${latitude}%2C${longitude}%2C${radius}`;
 
-    axios.get(paramsUrl).then(res => {
+    await axios.get(paramsUrl).then(res => {
       const total = res.data.nhits;
       const totalPagesCount = this.getPagesCount(
         total,
