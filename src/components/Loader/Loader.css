@@ -11,11 +11,11 @@
     height: 200px;
     display: flex;
     align-items: center;
+    justify-content: center;
     border-radius: 100%;
 }
 
 .Loader__image {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
+    width: auto;
+    height: 100px;
 }
