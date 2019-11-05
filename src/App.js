@@ -2,12 +2,16 @@ import React from "react";
 import "./App.css";
 import Header from "./components/Header";
 import GeoButton from "./components/GeoButton";
-import Map from "./components/Map"
+import Map from "./components/Map";
+import SearchBar from './components/SearchBar';
 
 
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      aoc : ''    
+    }
   }
   render() {
     return (
@@ -20,7 +24,7 @@ class App extends React.Component {
         </section>
         <section className="row">
           <div className="col-12 col-lg-4">
-            <div className="border"> Instant search</div>
+            <div className="border"> <SearchBar /></div>
           </div>
           <div className="col-12 col-md-6 col-lg-4">
             <div className="border"> Interactive map <Map /></div>
