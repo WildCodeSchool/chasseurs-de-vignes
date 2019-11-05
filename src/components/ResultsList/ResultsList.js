@@ -77,7 +77,6 @@ class Results extends Component {
             {results.map(result => <Result latitude={latitude} longitude={longitude} {...result.fields} />)}
           </div>
         }
-    }
       </div>
     );
   }

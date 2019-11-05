@@ -30,8 +30,12 @@ class App extends Component {
       <div className="App container-fluid">
         <Header />
         <section className="row">
-          <div className="col-12 col-lg-4"><SearchBar /></div>
-          <div className="col-12 col-md-6 col-lg-4"><Map /></div>
+          <div className="col-12 col-lg-4">
+            {/* <SearchBar /> */}
+          </div>
+          <div className="col-12 col-md-6 col-lg-4">
+            {/* <Map /> */}
+          </div>
           <div className="col-12 col-md-6 col-lg-4">
             <GeoButton afterClick={this.setCoords} />
           </div>
