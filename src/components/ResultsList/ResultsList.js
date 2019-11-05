@@ -20,17 +20,19 @@ class Results extends Component {
             </div>
           </div>
         )}
-        {results.length > 0 && (
-          <div className="ResultsList__group row">
-            {results.map(result => (
-              <Result
-                latitude={latitude}
-                longitude={longitude}
-                {...result.fields}
-              />
-            ))}
-          </div>
-        )}
+        <div className={isLoading && `ResultsList--hidden`}>
+          {results.length > 0 && (
+            <div className="ResultsList__group row">
+              {results.map(result => (
+                <Result
+                  latitude={latitude}
+                  longitude={longitude}
+                  {...result.fields}
+                />
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     );
   }

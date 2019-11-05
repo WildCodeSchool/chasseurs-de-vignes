@@ -79,10 +79,10 @@ class MainPage extends Component {
       <div className="MainPage">
         <section className="container__functions row">
           <div className="col-12 col-lg-4">
-            <SearchBar />
+            {/* <SearchBar /> */}
           </div>
           <div className="col-12 col-md-6 col-lg-4">
-            <Map />
+            {/* <Map /> */}
           </div>
           <div className="col-12 col-md-6 col-lg-4">
             <GeoButton afterClick={this.setCoords} />
