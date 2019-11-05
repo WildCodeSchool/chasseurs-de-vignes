@@ -64,7 +64,11 @@ class Results extends Component {
     const showNextLink = totalResults > currentStart;
     return (
       <div className="ResultsList">
-        {isLoading && <Loader />}
+        {isLoading && (
+          <div className="col-12">
+            <Loader />
+          </div>
+        )}
         <div className={isLoading && `ResultsList--hidden`}>
           <div className="col-12">
             <PageNavigation
