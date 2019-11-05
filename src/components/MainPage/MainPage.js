@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./MainPage.css";
 import axios from "axios";
-import PageNavigation from "../PageNavigation";
+import PageNavigation from "../PageNavigation/PageNavigation";
 import SearchBar from "../SearchBar/SearchBar";
 import GeoButton from "../GeoButton/GeoButton";
 import ResultsList from "../ResultsList/ResultsList";
@@ -27,9 +27,12 @@ class MainPage extends Component {
     };
   }
 
-  async componentDidMount() {
+  setCoords = coords => {
+    this.setState({
+      coords
+    });
     this.fetchAocs(0);
-  }
+  };
 
   async fetchAocs(updatedPageNo = "") {
     const pageNumber = updatedPageNo ? updatedPageNo : "";
@@ -39,7 +42,7 @@ class MainPage extends Component {
     } = this.state;
     const requestURL = `${apiURL}&rows=${rows}&start=${pageNumber}&geofilter.distance=${latitude}%2C${longitude}%2C${radius}`;
 
-    this.setState({ isLoading: true });
+    this.setState({ isLoading: true });
 
     const res = await axios.get(requestURL);
     const { nhits, records } = res.data;
@@ -50,7 +53,7 @@ class MainPage extends Component {
       totalResults: nhits,
       currentStart: updatedPageNo,
       totalPages: totalPagesCount,
-      isLoading: false,
+      isLoading: false
     });
   }
 
@@ -63,32 +66,18 @@ class MainPage extends Component {
   handlePageClick = type => {
     const { currentStart, rows, query } = this.state;
     const updatedPageNo =
-      "prev" === type
-        ? currentStart - rows
-        : currentStart + rows;
+      "prev" === type ? currentStart - rows : currentStart + rows;
     this.fetchAocs(updatedPageNo, query);
   };
-      
-  setCoords = (coords) => {
-    this.setState({
-      coords
-    });
-  }
 
   render() {
-    const {
-        aocs,
-        currentStart,
-        totalResults,
-        coords,
-        isLoading
-    } = this.state;
+    const { aocs, currentStart, totalResults, coords, isLoading } = this.state;
     const showPrevLink = 1 < currentStart;
     const showNextLink = totalResults > currentStart;
 
     return (
       <div className="MainPage">
-        <section className="container__functions">
+        <section className="container__functions row">
           <div className="col-12 col-lg-4">
             <SearchBar />
           </div>
@@ -99,7 +88,7 @@ class MainPage extends Component {
             <GeoButton afterClick={this.setCoords} />
           </div>
         </section>
-        <section className="container__returns">
+        <section className="container__returns row">
           <div className={isLoading && `MainPage__results--hidden`}>
             <div className="col-12">
               <PageNavigation
@@ -111,7 +100,13 @@ class MainPage extends Component {
             </div>
           </div>
           {coords.latitude && (
-            <ResultsList coords={coords} results={aocs} isLoading={isLoading} />
+            <div className="col-12">
+              <ResultsList
+                coords={coords}
+                results={aocs}
+                isLoading={isLoading}
+              />
+            </div>
           )}
         </section>
       </div>
