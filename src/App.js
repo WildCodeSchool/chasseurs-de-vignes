@@ -13,32 +13,53 @@ class App extends Component {
       coords: {
         latitude: null,
         longitude: null
-      }
+      },
+      isLoading: false
     };
-    this.setCoords = this.setCoords.bind(this)
+    this.setCoords = this.setCoords.bind(this);
+    this.getLoader = this.getLoader.bind(this);
+    this.stopLoader = this.stopLoader.bind(this);
   }
-
+  
   setCoords(coords) {
     this.setState({
       coords
-    })
+    });
+  }
+
+  getLoader(loading) {
+    this.setState({
+      isLoading: loading
+    });
+    setTimeout(this.stopLoader, 3000)
+  }
+
+  stopLoader() {
+    this.setState({
+      isLoading: false
+    });
   }
 
   render() {
-    const { coords } = this.state
+    const { coords, isLoading } = this.state;
     return (
       <div className="App container-fluid">
         <Header />
-        <section className="row">
-          <div className="col-12 col-lg-4"><SearchBar /></div>
-          <div className="col-12 col-md-6 col-lg-4"><Map /></div>
+        <section className="container__functions">
+          <div className="col-12 col-lg-4">{/* <SearchBar /> */}</div>
+          <div className="col-12 col-md-6 col-lg-4">{/* <Map /> */}</div>
           <div className="col-12 col-md-6 col-lg-4">
-            <GeoButton afterClick={this.setCoords} />
+            <GeoButton
+              afterClick={this.setCoords}
+              afterClickLoad={this.getLoader}
+            />
           </div>
         </section>
-        {coords.latitude && (
-          <ResultsList coords={coords} />
-        )}
+        <section className="container__returns">
+          {coords.latitude && (
+            <ResultsList coords={coords} isLoading={isLoading} />
+          )}
+        </section>
       </div>
     );
   }

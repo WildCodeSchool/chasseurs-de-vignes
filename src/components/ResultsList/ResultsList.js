@@ -1,8 +1,9 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "./ResultsList.css";
 import axios from "axios";
 import PageNavigation from "../PageNavigation";
-import Result from "../Result/Result"
+import Result from "../Result/Result";
+import Loader from "../Loader/Loader";
 
 class Results extends Component {
   constructor(props) {
@@ -13,8 +14,7 @@ class Results extends Component {
       results: [],
       totalResults: 0,
       totalPages: 0,
-      currentStart: 0,
-      isLoading: true
+      currentStart: 0
     };
   }
 
@@ -22,7 +22,7 @@ class Results extends Component {
     this.fetchAocs(0);
   }
 
-  async fetchAocs(updatedPageNo = ""){
+  async fetchAocs(updatedPageNo = "") {
     const pageNumber = updatedPageNo ? updatedPageNo : "";
     const { latitude, longitude } = this.props.coords;
     const { radius } = this.state;
@@ -31,10 +31,7 @@ class Results extends Component {
 
     const res = await axios.get(paramsUrl);
     const total = res.data.nhits;
-    const totalPagesCount = this.getPagesCount(
-      total,
-      res.data.parameters.rows
-    );
+    const totalPagesCount = this.getPagesCount(total, res.data.parameters.rows);
     this.setState({
       data: res.data,
       results: res.data.records,
@@ -42,7 +39,7 @@ class Results extends Component {
       currentStart: updatedPageNo,
       totalPages: totalPagesCount
     });
-  };
+  }
 
   getPagesCount = (total, denominator) => {
     const divisible = total % denominator === 0;
@@ -51,7 +48,7 @@ class Results extends Component {
   };
 
   handlePageClick = type => {
-    const { currentStart, data, query } = this.state
+    const { currentStart, data, query } = this.state;
     const updatedPageNo =
       "prev" === type
         ? currentStart - data.parameters.rows
@@ -62,22 +59,39 @@ class Results extends Component {
   render() {
     const { results, currentStart, totalResults } = this.state;
     const { latitude, longitude } = this.props.coords;
+    const { isLoading } = this.props;
     const showPrevLink = 1 < currentStart;
     const showNextLink = totalResults > currentStart;
     return (
-      <div className="Results">
-        <PageNavigation
-          showPrevLink={showPrevLink}
-          showNextLink={showNextLink}
-          handlePrevClick={() => this.handlePageClick("prev")}
-          handleNextClick={() => this.handlePageClick("next")}
-        />
-        {results.length > 0 &&
-          <div className="row Results">
-            {results.map(result => <Result latitude={latitude} longitude={longitude} {...result.fields} />)}
+      <div className="ResultsList">
+        {isLoading && (
+          <div className="col-12">
+            <Loader />
           </div>
-        }
-    }
+        )}
+        <div className={isLoading && `ResultsList--hidden`}>
+          <div className="col-12">
+            <PageNavigation
+              showPrevLink={showPrevLink}
+              showNextLink={showNextLink}
+              handlePrevClick={() => this.handlePageClick("prev")}
+              handleNextClick={() => this.handlePageClick("next")}
+            />
+          </div>
+          {results.length > 0 && (
+            <div className="col-12">
+              <div className="ResultsList__group row">
+                {results.map(result => (
+                  <Result
+                    latitude={latitude}
+                    longitude={longitude}
+                    {...result.fields}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     );
   }

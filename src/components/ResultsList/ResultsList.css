@@ -1,6 +1,5 @@
-
-.Results {
-    position: relative;
-    margin:0;
+.ResultsList--hidden {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
 }
-
