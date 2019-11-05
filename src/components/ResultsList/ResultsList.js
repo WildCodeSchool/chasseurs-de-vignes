@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import "./Results.css";
+import "./ResultsList.css";
 import axios from "axios";
 import PageNavigation from "../PageNavigation";
 import Result from "../Result/Result"

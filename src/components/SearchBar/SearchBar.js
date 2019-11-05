@@ -2,7 +2,7 @@ import Autosuggest from 'react-autosuggest';
 import React from 'react';
 import './SearchBar.css'
 import axios from 'axios';
-import Results from '../Results/Results';
+import ResultsList from '../ResultsList/ResultsList';
 
 const renderSuggestion = suggestion => (
   <div>
@@ -96,7 +96,7 @@ class SearchBar extends React.Component {
           />
           <button type="submit">submit</button>
         </form>
-        {this.state.hasSubmitted && <Results />}
+        {this.state.hasSubmitted && <ResultsList />}
       </div>
     );
   }
