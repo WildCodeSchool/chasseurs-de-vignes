@@ -18,6 +18,8 @@
 .RandomImage-image-wrapper {
   width: 100%;
   padding-top: 66.66%;
+  background: url(./images/image-placeholder.jpg) no-repeat center #DDDDDD;
+  background-size: contain;
 }
 
 .RandomImage-image {
