@@ -28,10 +28,12 @@ class MainPage extends Component {
   }
 
   setCoords = coords => {
-    this.setState({
-      coords
-    },
-    this.fetchAocs);
+    this.setState(
+      {
+        coords
+      },
+      this.fetchAocs
+    );
   };
 
   async fetchAocs(updatedPageNo = 0) {
@@ -89,7 +91,7 @@ class MainPage extends Component {
           </div>
         </section>
         <section className="container__returns row">
-          <div className={isLoading && `MainPage__results--hidden`}>
+          <div className={isLoading ? `MainPage__results--hidden` : ""}>
             <div className="col-12">
               <PageNavigation
                 showPrevLink={showPrevLink}
