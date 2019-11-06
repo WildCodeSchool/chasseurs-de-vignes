@@ -79,7 +79,7 @@ class MainPage extends Component {
       <div className="MainPage">
         <section className="container__functions row">
           <div className="col-12 col-lg-4">
-            <SearchBar />
+            <SearchBar afterClick={this.setCoords} />
           </div>
           <div className="col-12 col-md-6 col-lg-4">
             <Map />
@@ -89,7 +89,7 @@ class MainPage extends Component {
           </div>
         </section>
         <section className="container__returns row">
-          <div className={isLoading && `MainPage__results--hidden`}>
+          <div className={isLoading ? `MainPage__results--hidden` : ""}>
             <div className="col-12">
               <PageNavigation
                 showPrevLink={showPrevLink}
