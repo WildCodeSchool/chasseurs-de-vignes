@@ -3,7 +3,8 @@ import France from "@svg-maps/france.regions";
 import { SVGMap } from "react-svg-map";
 import "react-svg-map/lib/index.css";
 
-const regions = [{
+const regions = [
+  {
     id: "ara",
     latitude: 45.481437830498514,
     longitude: 4.5141887834336085
@@ -68,46 +69,21 @@ const regions = [{
     latitude: 43.73853498899408,
     longitude: 6.388010745793065
   }
+];
 
-]
-
-class Map extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      regionClick: null,
-    };
-  }
-
-  getPositionRegions = () => {
-    const { regionClick } = this.state
-    const coordsRegion = regions.filter(x => x.id === regionClick)  
-    if (regionClick) {
-      this.setState({
-        coords: {
-          latitude: coordsRegion[0].latitude,
-          longitude: coordsRegion[0].longitude
-        }
-      })
-    }
-    const { latitude, longitude} = this.state.coords
-    this.props.afterClick({ latitude, longitude })
-  }
-
-  getMap = event => {
-    this.setState({
-      regionClick: event.target.getAttribute("id")
-    });
-    this.getPositionRegions()
-  };
-
-  render() {
-    return (
-      <div className="Map">
-        <SVGMap map={France} onLocationClick={event => this.getMap(event)} />
-      </div>
+function Map({ afterClick }) {
+  const getPostionRegion = event => {
+    const coordsRegion = regions.filter(
+      x => x.id === event.target.getAttribute("id")
     );
-  }
+    const { latitude, longitude } = coordsRegion[0];
+    afterClick({ latitude, longitude });
+  };
+  return (
+    <div className="Map">
+      <SVGMap map={France} onLocationClick={event => getPostionRegion(event)} />
+    </div>
+  );
 }
 
 export default Map;
