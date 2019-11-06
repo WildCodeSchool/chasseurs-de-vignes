@@ -18,11 +18,11 @@ function Results({
           </div>
         </div>
       )}
-      <div className={isLoading && `ResultsList--hidden`}>
+      <div className={isLoading ? `ResultsList--hidden` : ""}>
         {results.length > 0 && (
           <div className="ResultsList__group row">
-            {results.map(result => (
-              <Result
+            {results.map((result, index) => (
+              <Result key={latitude+longitude+index}
                 latitude={latitude}
                 longitude={longitude}
                 {...result.fields}
