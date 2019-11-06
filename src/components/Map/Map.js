@@ -1,77 +1,77 @@
-import React from "react";
+import React, { Component } from "react";
 import France from "@svg-maps/france.regions";
 import { SVGMap } from "react-svg-map";
 import "react-svg-map/lib/index.css";
 
-const regions = {
-  ara: {
+const regions = [{
+    id: "ara",
     latitude: 45.481437830498514,
     longitude: 4.5141887834336085
   },
-
-  bfc: {
+  {
+    id: "bfc",
     latitude: 47.21963038384999,
     longitude: 4.748610310762349
   },
-
-  bre: {
+  {
+    id: "bre",
     latitude: 47.89207487236879,
     longitude: -3.6118343602272613
   },
-
-  cvl: {
+  {
+    id: "cvl",
     latitude: 47.52911811949319,
     longitude: 1.805427692205875
   },
-
-  cor: {
+  {
+    id: "cor",
     latitude: 42.1716153,
     longitude: 9.1710018
   },
-
-  ges: {
+  {
+    id: "ges",
     latitude: 48.690745,
     longitude: 5.617216
   },
-
-  hdf: {
+  {
+    id: "hdf",
     latitude: 49.955555,
     longitude: 2.792501
   },
-
-  idf: {
+  {
+    id: "idf",
     latitude: 49.03646231803129,
     longitude: 2.9219899503280455
   },
-
-  nor: {
+  {
+    id: "nor",
     latitude: 49.1256272,
     longitude: 0.1032153
   },
-
-  naq: {
+  {
+    id: "naq",
     latitude: 45.2033333,
     longitude: 0.19333333333333333
   },
-
-  occ: {
+  {
+    id: "occ",
     latitude: 43.9266695,
     longitude: 2.1436188
   },
-
-  pdl: {
+  {
+    id: "pdl",
     latitude: 47.4599985,
     longitude: -0.7947931
   },
-
-  pac: {
+  {
+    id: "pac",
     latitude: 43.73853498899408,
     longitude: 6.388010745793065
   }
 
-}
+]
 
-class Map extends React.Component {
+class Map extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -84,9 +84,18 @@ class Map extends React.Component {
     };
   }
 
-  getPositionMap = () => {
-     console.log(regions.cvl)
-    
+  getPositionRegions = () => {
+    const { regionClick } = this.state
+    const coordsRegion = regions.filter(x => x.id === regionClick)  
+    if (regionClick) {
+      this.setState({
+        coords: {
+          latitude: coordsRegion[0].latitude,
+          longitude: coordsRegion[0].longitude
+        }
+      })
+    }
+    console.log(this.state.coords)
   }
 
   getMap = event => {
@@ -94,7 +103,7 @@ class Map extends React.Component {
       clickMap: true,
       regionClick: event.target.getAttribute("id")
     });
-    this.getPositionMap()
+    this.getPositionRegions()
   };
 
   render() {
