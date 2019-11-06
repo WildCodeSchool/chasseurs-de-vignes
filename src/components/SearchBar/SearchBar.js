@@ -2,7 +2,6 @@ import Autosuggest from "react-autosuggest";
 import React from "react";
 import "./SearchBar.css";
 import axios from "axios";
-import ResultsList from "../ResultsList/ResultsList";
 
 const renderSuggestion = suggestion => <div>{suggestion}</div>;
 
@@ -25,6 +24,8 @@ class SearchBar extends React.Component {
     event.preventDefault();
     this.getValue(this.state.value);
     this.setState({ hasSubmitted: true });
+    const { latitude, longitude } = this.state.coords;
+    this.props.afterClick({ latitude, longitude });
   }
 
   async getValue(value = this.state.value) {
