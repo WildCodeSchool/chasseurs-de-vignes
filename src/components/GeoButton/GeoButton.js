@@ -1,6 +1,7 @@
 import React from "react";
 
 function GeoButton({ afterClick }) {
+
   const getPosition = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
