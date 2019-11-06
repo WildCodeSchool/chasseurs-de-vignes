@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import France from "@svg-maps/france.regions";
 import { SVGMap } from "react-svg-map";
 import "react-svg-map/lib/index.css";
