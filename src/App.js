@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import { Switch, Route } from 'react-router-dom';
 import Header from "./components/Header/Header";
 import SearchBar from "./components/SearchBar/SearchBar";
 import Map from "./components/Map";
