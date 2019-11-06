@@ -82,7 +82,7 @@ class MainPage extends Component {
             <SearchBar />
           </div>
           <div className="col-12 col-md-6 col-lg-4">
-            <Map />
+            <Map afterClick={this.setCoords} />
           </div>
           <div className="col-12 col-md-6 col-lg-4">
             <GeoButton afterClick={this.setCoords} />

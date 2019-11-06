@@ -95,7 +95,8 @@ class Map extends Component {
         }
       })
     }
-    console.log(this.state.coords)
+    const { latitude, longitude} = this.state.coords
+    this.props.afterClick({ latitude, longitude })
   }
 
   getMap = event => {
