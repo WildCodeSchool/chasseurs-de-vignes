@@ -75,12 +75,7 @@ class Map extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      clickMap: false,
       regionClick: null,
-      coords: {
-        latitude: null,
-        longitude: null
-      }
     };
   }
 
@@ -101,7 +96,6 @@ class Map extends Component {
 
   getMap = event => {
     this.setState({
-      clickMap: true,
       regionClick: event.target.getAttribute("id")
     });
     this.getPositionRegions()
