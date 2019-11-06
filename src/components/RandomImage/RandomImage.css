@@ -1,0 +1,22 @@
+.RandomImage {
+    margin: 10px;
+    padding: 0;
+    position: relative;
+}
+
+.RandomImage-image-wrapper:after {
+    border-radius: 5px;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    box-shadow: inset 0px 0px 100px black;
+}
+
+.RandomImage-image {
+    border-radius: 5px;
+    width: 100%;
+    height: auto;
+}

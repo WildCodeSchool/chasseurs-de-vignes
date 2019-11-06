@@ -1,39 +1,27 @@
-import React from "react";
+import React, { Component } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
-class Navbar extends React.Component {
 
-    render() {
-        return ( 
-            <div>
-            <i id="open-menu" className="fa fa-bars"></i>
-            <div className="Navbar">
-                <ul className="Navbar-group">
-                    <li className="Navbar-group-item">
-                      <a href="./">Accueil</a>
-                    </li>
-                    <li className="Navbar-group-item">
-                      <a href="./">À propos</a>
-                    </li>
-                </ul>
-            </div>
-                <script>
-                {
-                    document.addEventListener('DOMContentLoaded', () => {
-                        const clickBurger = document.querySelector('#open-menu');
-                        const header = document.querySelector('.Header');
-                        const openMenu = document.querySelector('.Navbar-group');
-                        clickBurger.addEventListener('click', () => {
-                            header.classList.toggle('Header--mobile');
-                            openMenu.classList.toggle('Navbar-group--mobile');
-                            clickBurger.classList.toggle('fa-bars');
-                            clickBurger.classList.toggle('fa-times');
-                        });
-
-                    })
-                }
-                </script>
-            </div>
-        )
-    }
+function Navbar({ isMobile, onBurgerButton }) {
+  const getMenuMobile = () => {
+    onBurgerButton(!isMobile);
+  }
+  return (
+    <div className="Navbar">
+      <FontAwesomeIcon onClick={getMenuMobile} id="open-menu" icon={isMobile ? faTimes : faBars} />
+      <div className="Navbar">
+        <ul className={isMobile ? "Navbar-group Navbar-group--mobile" : "Navbar-group"}>
+          <li className="Navbar-group-item">
+            <a href="/public/index.html">Accueil</a>
+          </li>
+          <li className="Navbar-group-item">
+            <a href="/public/index.html">À propos</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  )
 }
+
 export default Navbar;

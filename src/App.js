@@ -1,40 +1,44 @@
-import React from "react";
+import React, { Component } from "react";
 import "./App.css";
-import Header from "./components/Header";
-import GeoButton from "./components/GeoButton";
+import Header from "./components/Header/Header";
+import SearchBar from "./components/SearchBar/SearchBar";
 import Map from "./components/Map";
-import SearchBar from './components/SearchBar';
+import GeoButton from "./components/GeoButton";
+import ResultsList from "./components/ResultsList/ResultsList";
 
-
-class App extends React.Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      aoc : ''    
-    }
+      coords: {
+        latitude: null,
+        longitude: null
+      }
+    };
+    this.setCoords = this.setCoords.bind(this)
   }
+
+  setCoords(coords) {
+    this.setState({
+      coords
+    })
+  }
+
   render() {
+    const { coords } = this.state
     return (
       <div className="App container-fluid">
         <Header />
         <section className="row">
-          <div className="col-12">
-            <div className="border">Heading title</div>
+          <div className="col-12 col-lg-4"><SearchBar /></div>
+          <div className="col-12 col-md-6 col-lg-4"><Map /></div>
+          <div className="col-12 col-md-6 col-lg-4">
+            <GeoButton afterClick={this.setCoords} />
           </div>
         </section>
-        <section className="row">
-          <div className="col-12 col-lg-4">
-            <div className="border"> <SearchBar /></div>
-          </div>
-          <div className="col-12 col-md-6 col-lg-4">
-            <div className="border"> Interactive map <Map /></div>
-          </div>
-          <div className="col-12 col-md-6 col-lg-4">
-            <div className="border">
-              <GeoButton />
-            </div>
-          </div>
-        </section>
+        {coords.latitude && (
+          <ResultsList coords={coords} />
+        )}
       </div>
     );
   }
