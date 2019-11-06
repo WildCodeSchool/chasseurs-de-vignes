@@ -28,13 +28,15 @@ class MainPage extends Component {
   }
 
   setCoords = coords => {
-    this.setState({
-      coords
-    });
-    this.fetchAocs(0);
-  };
+    this.setState(
+      {
+        coords
+      },
+      this.fetchAocs
+    );
+  }
 
-  async fetchAocs(updatedPageNo = "") {
+  async fetchAocs (updatedPageNo = 0) {
     const pageNumber = updatedPageNo ? updatedPageNo : "";
     const {
       radius,

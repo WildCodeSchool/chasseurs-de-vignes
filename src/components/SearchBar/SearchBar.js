@@ -25,7 +25,9 @@ class SearchBar extends React.Component {
     this.getValue(this.state.value);
     this.setState({ hasSubmitted: true });
     const { latitude, longitude } = this.state.coords;
-    this.props.afterClick({ latitude, longitude });
+    if ({ latitude }) {
+      this.props.afterClick({ latitude, longitude });
+    }
   }
 
   async getValue(value = this.state.value) {
@@ -52,17 +54,15 @@ class SearchBar extends React.Component {
     this.state.aoc
       .filter(x => x.fields.geo_point_2d)
       .map(x => {
-      if (x.fields.appellatio === newValue) {
-        this.setState({
-          coords: {
-            latitude: x.fields.geo_point_2d[0],
-            longitude: x.fields.geo_point_2d[1]
-          }
-        });
-        const { latitude, longitude } = this.state.coords;
-        this.props.afterClick({ latitude, longitude });
-      }
-    });
+        if (x.fields.appellatio === newValue) {
+          this.setState({
+            coords: {
+              latitude: x.fields.geo_point_2d[0],
+              longitude: x.fields.geo_point_2d[1]
+            }
+          });
+        }
+      });
   };
 
   onSuggestionsFetchRequested = ({ value }) => {
