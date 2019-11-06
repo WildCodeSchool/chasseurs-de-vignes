@@ -10,7 +10,9 @@ class App extends Component {
     return (
       <div className="App container-fluid">
         <Header />
-        <MainPage />
+        <Switch>
+          <Route exact path='/' component={MainPage} />
+        </Switch>
       </div>
     );
   }
