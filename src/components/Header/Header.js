@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Header.css";
 import Logo from "../Logo/Logo";
-import Navbar from "../Navbar";
+import Navbar from "../Navbar/Navbar";
 
 class Header extends Component {
   constructor(props) {
