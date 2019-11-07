@@ -83,7 +83,6 @@ class SearchBar extends React.Component {
     return (
       <div>
         <form onSubmit={this.getResultat}>
-          <label htmlFor="AOC_Searched">AOC Recherchée</label>
           <Autosuggest
             name = "AOC_Searched"
             id = "AOC_Searched"z

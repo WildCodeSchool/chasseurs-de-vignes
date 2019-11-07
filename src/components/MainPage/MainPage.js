@@ -44,7 +44,7 @@ class MainPage extends Component {
     } = this.state;
     const requestURL = `${apiURL}&rows=${rows}&start=${pageNumber}&geofilter.distance=${latitude}%2C${longitude}%2C${radius}`;
 
-    this.setState({ isLoading: true });
+    this.setState({ isLoading: true, showFunction: false });
 
     const res = await axios.get(requestURL);
     const { nhits, records } = res.data;
@@ -73,7 +73,13 @@ class MainPage extends Component {
   };
 
   render() {
-    const { aocs, currentStart, totalResults, coords, isLoading } = this.state;
+    const {
+      aocs,
+      currentStart,
+      totalResults,
+      coords,
+      isLoading
+    } = this.state;
     const showPrevLink = 1 < currentStart;
     const showNextLink = totalResults > currentStart;
 
@@ -81,13 +87,25 @@ class MainPage extends Component {
       <div className="MainPage">
         <section className="container__functions row">
           <div className="col-12 col-lg-4">
-            <SearchBar />
+            <div className="container__functions__items">
+              <div className="container__functions__open">
+                <SearchBar />
+              </div>
+            </div>
           </div>
           <div className="col-12 col-md-6 col-lg-4">
-            <Map afterClick={this.setCoords} />
+            <div className="container__functions__items">
+              <div className="container__functions__open">
+                <Map afterClick={this.setCoords} />
+              </div>
+            </div>
           </div>
           <div className="col-12 col-md-6 col-lg-4">
-            <GeoButton afterClick={this.setCoords} />
+            <div className="container__functions__items">
+              <div className="container__functions__open">
+                <GeoButton afterClick={this.setCoords} />
+              </div>
+            </div>
           </div>
         </section>
         <section className="container__returns row">
