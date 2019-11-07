@@ -6,6 +6,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import GeoButton from "../GeoButton/GeoButton";
 import ResultsList from "../ResultsList/ResultsList";
 import Map from "../Map/Map";
+import Filter from "../Filter/Filter"
 
 const apiURL = `https://plateforme.api-agro.fr/api/records/1.0/search/?dataset=delimitation-parcellaire-des-aoc-viticoles`;
 const rows = 12;
@@ -31,6 +32,15 @@ class MainPage extends Component {
     this.setState(
       {
         coords
+      },
+      this.fetchAocs
+    );
+  };
+
+  setRadius = radius => {
+    this.setState(
+      {
+        radius
       },
       this.fetchAocs
     );
@@ -78,6 +88,7 @@ class MainPage extends Component {
       currentStart,
       totalResults,
       coords,
+      radius,
       isLoading
     } = this.state;
     const showPrevLink = 1 < currentStart;
@@ -117,6 +128,7 @@ class MainPage extends Component {
                 handlePrevClick={() => this.handlePageClick("prev")}
                 handleNextClick={() => this.handlePageClick("next")}
               />
+              <Filter changeRadius={this.setRadius} currentRadius={radius} />
             </div>
           </div>
           {coords.latitude && (
