@@ -15,7 +15,16 @@
     box-shadow: inset 0px 0px 100px black;
 }
 
+.RandomImage-image-wrapper {
+  width: 100%;
+  padding-top: 66.66%;
+  background: url(./images/image-placeholder.jpg) no-repeat center #DDDDDD;
+  background-size: contain;
+}
+
 .RandomImage-image {
+    position: absolute;
+    top: 0;
     border-radius: 5px;
     width: 100%;
     height: auto; 
