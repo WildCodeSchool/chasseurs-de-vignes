@@ -15,24 +15,21 @@ class SearchBar extends React.Component {
         longitude: null
       },
       suggestions: [],
-      aoc: [],
-      hasSubmitted: false
+      aoc: []
     };
     this.getResultat = this.getResultat.bind(this);
   }
   getResultat(event) {
     event.preventDefault();
-    this.getValue(this.state.value);
-    this.setState({ hasSubmitted: true });
     const { latitude, longitude } = this.state.coords;
     this.props.afterClick({ latitude, longitude });
   }
 
-  async getValue(value = this.state.value) {
+  async getValue() {
     const response = await axios.get(
       `https://plateforme.api-agro.fr/api/records/1.0/search/?dataset=delimitation-parcellaire-des-aoc-viticoles&rows=50&facet=appellatio&facet=denominati&facet=crinao`
     );
-    this.setState({ aoc: response.data.records, value });
+    this.setState({ aoc: response.data.records });
   }
 
   componentDidMount() {
@@ -40,20 +37,21 @@ class SearchBar extends React.Component {
   }
 
   goodValue() {
-    return this.state.aoc.map(region => {
-      return region.fields.appellatio;
-    });
+    return this.state.aoc
+      .filter(region => region.fields.geo_point_2d)
+      .map(region => {
+        return `${region.fields.appellatio} - ${region.fields.new_nomcom}`;
+      });
   }
 
   onChange = (event, { newValue }) => {
-    console.log(this.state.aoc);
     this.setState({
       value: newValue
     });
     this.state.aoc
       .filter(x => x.fields.geo_point_2d)
       .map(x => {
-        if (x.fields.appellatio === newValue) {
+        if (`${x.fields.appellatio} - ${x.fields.new_nomcom}` === newValue) {
           this.setState({
             coords: {
               latitude: x.fields.geo_point_2d[0],
@@ -75,7 +73,7 @@ class SearchBar extends React.Component {
     const inputLength = inputValue.length;
     return inputLength === 0
       ? []
-      : this.goodValue(this.state.aoc).filter(
+      : this.goodValue().filter(
           lang => lang.toLowerCase().slice(0, inputLength) === inputValue
         );
   };
