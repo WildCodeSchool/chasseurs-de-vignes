@@ -60,7 +60,10 @@ class SearchBar extends React.Component {
     this.state.aoc
       .filter(x => x.fields.geo_point_2d)
       .map(x => {
-        if (`${x.fields.appellatio} - ${x.fields.new_nomcom}` === newValue) {
+        if (
+          `${x.fields.appellatio} - ${this.Capitalize(x.fields.new_nomcom)}` ===
+          newValue
+        ) {
           this.setState({
             coords: {
               latitude: x.fields.geo_point_2d[0],
