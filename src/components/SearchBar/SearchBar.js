@@ -40,10 +40,19 @@ class SearchBar extends React.Component {
     return this.state.aoc
       .filter(region => region.fields.geo_point_2d)
       .map(region => {
-        return `${region.fields.appellatio} - ${region.fields.new_nomcom}`;
+        return `${region.fields.appellatio} - ${this.Capitalize(
+          region.fields.new_nomcom
+        )}`;
       });
   }
 
+  Capitalize(str) {
+    const words = str.split(/-| /);
+    for (let i = 0; i < words.length; i++) {
+      words[i] = words[i][0].toUpperCase() + words[i].substring(1);
+    }
+    return words.join(" ");
+  }
   onChange = (event, { newValue }) => {
     this.setState({
       value: newValue
@@ -74,7 +83,7 @@ class SearchBar extends React.Component {
     return inputLength === 0
       ? []
       : this.goodValue().filter(
-          lang => lang.toLowerCase().slice(0, inputLength) === inputValue
+          region => region.toLowerCase().slice(0, inputLength) === inputValue
         );
   };
 
