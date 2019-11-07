@@ -16,7 +16,7 @@ function Navbar({ isMobile, onBurgerButton }) {
             <a href="/">Accueil</a>
           </li>
           <li className="Navbar-group-item">
-            <a href="/public/index.html">À propos</a>
+            <a href="/aboutus">À propos</a>
           </li>
         </ul>
       </div>
