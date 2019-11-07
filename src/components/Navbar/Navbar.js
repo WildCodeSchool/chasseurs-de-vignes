@@ -14,7 +14,7 @@ function Navbar({ isMobile, onBurgerButton }) {
       <div className="Navbar">
         <ul className={isMobile ? "Navbar-group Navbar-group--mobile" : "Navbar-group"}>
           <li className="Navbar-group-item">
-            <a href="/">Accueil</a>
+          <Link to="/">Accueil</Link>
           </li>
           <li className="Navbar-group-item">
             <Link to="/about-us">À propos</Link>
