@@ -16,22 +16,23 @@ class Filter extends Component {
     });
   };
 
-  submitRadius = () => {
-    const { radius } = this.state;
-    this.props.changeRadius(Number(radius) * 1000);
+  incrementRadius = () => {
+    this.props.changeRadius(Number(this.props.currentRadius + 10000));
+  };
+
+  decrementRadius = () => {
+    this.props.changeRadius(Number(this.props.currentRadius - 10000));
   };
 
   render() {
-    const { radius } = this.state;
     const { currentRadius } = this.props;
     return (
       <div className="Filter">
-        <p>Rayon actuel : {currentRadius / 1000} km</p>
         <p>
-          Changer le rayon :
-          <input type="number" onChange={this.getRadius} value={radius} />
+          <button onClick={this.decrementRadius}>-</button>
+          {currentRadius / 1000}
           km
-          <button onClick={this.submitRadius}>Filtrer</button>
+          <button onClick={this.incrementRadius}>+</button>
         </p>
       </div>
     );
