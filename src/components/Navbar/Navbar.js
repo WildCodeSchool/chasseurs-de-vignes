@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 
@@ -16,7 +17,7 @@ function Navbar({ isMobile, onBurgerButton }) {
             <a href="/">Accueil</a>
           </li>
           <li className="Navbar-group-item">
-            <a href="/aboutus">À propos</a>
+            <Link to="/about-us">À propos</Link>
           </li>
         </ul>
       </div>
