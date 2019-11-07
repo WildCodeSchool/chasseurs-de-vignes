@@ -34,15 +34,9 @@ class MainPage extends Component {
       },
       this.fetchAocs
     );
-<<<<<<< HEAD
-  }
-
-  async fetchAocs (updatedPageNo = 0) {
-=======
   };
 
   async fetchAocs(updatedPageNo = 0) {
->>>>>>> b187b547ab94ab0f4ccf0c359569131e0e4b8ea9
     const pageNumber = updatedPageNo ? updatedPageNo : "";
     const {
       radius,
