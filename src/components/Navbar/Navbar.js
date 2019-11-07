@@ -13,10 +13,10 @@ function Navbar({ isMobile, onBurgerButton }) {
       <div className="Navbar">
         <ul className={isMobile ? "Navbar-group Navbar-group--mobile" : "Navbar-group"}>
           <li className="Navbar-group-item">
-            <a href="/public/index.html">Accueil</a>
+            <a href="/">Accueil</a>
           </li>
           <li className="Navbar-group-item">
-            <a href="/public/index.html">À propos</a>
+            <a href="/aboutus">À propos</a>
           </li>
         </ul>
       </div>
