@@ -25,14 +25,12 @@ class SearchBar extends React.Component {
     this.getValue(this.state.value);
     this.setState({ hasSubmitted: true });
     const { latitude, longitude } = this.state.coords;
-    if ({ latitude }) {
-      this.props.afterClick({ latitude, longitude });
-    }
+    this.props.afterClick({ latitude, longitude });
   }
 
   async getValue(value = this.state.value) {
     const response = await axios.get(
-      `https://plateforme.api-agro.fr/api/records/1.0/search/?dataset=delimitation-parcellaire-des-aoc-viticoles&facet=appellatio&facet=denominati&facet=crinao`
+      `https://plateforme.api-agro.fr/api/records/1.0/search/?dataset=delimitation-parcellaire-des-aoc-viticoles&rows=50&facet=appellatio&facet=denominati&facet=crinao`
     );
     this.setState({ aoc: response.data.records, value });
   }
@@ -48,6 +46,7 @@ class SearchBar extends React.Component {
   }
 
   onChange = (event, { newValue }) => {
+    console.log(this.state.aoc);
     this.setState({
       value: newValue
     });
