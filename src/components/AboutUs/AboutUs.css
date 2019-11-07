@@ -1,0 +1,21 @@
+.Title--aboutus  {
+    text-align: center;
+    margin: 30px;
+  }
+  
+.Text--aboutus {
+    text-align: justify;
+    font-size: 120%;
+    margin: 30px;
+  }
+  
+img {
+    width: 10%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.Name--aboutus {
+    margin: 40px;
+}
