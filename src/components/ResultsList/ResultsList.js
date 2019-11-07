@@ -6,7 +6,8 @@ import Loader from "../Loader/Loader";
 function Results({
   results,
   isLoading,
-  coords: { latitude, longitude }
+  coords: { latitude, longitude },
+  nameRegion
 }) {
 
   return (
@@ -19,6 +20,7 @@ function Results({
         </div>
       )}
       <div className={isLoading ? `ResultsList--hidden` : ""}>
+        <h2>{nameRegion}</h2>
         {results.length > 0 && (
           <div className="ResultsList__group row">
             {results.map((result, index) => (
