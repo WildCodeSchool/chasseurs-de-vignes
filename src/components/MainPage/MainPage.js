@@ -23,7 +23,9 @@ class MainPage extends Component {
         longitude: null
       },
       radius: 50000,
-      isLoading: true
+      isLoading: true,
+      searchMethod: null,
+      nameRegion: null
     };
   }
 
@@ -59,6 +61,18 @@ class MainPage extends Component {
     });
   }
 
+  setSearchMethod = (type) => {
+    this.setState({
+      searchMethod: type
+    });
+  }
+
+  getNameRegion = (region) => {
+    this.setState({
+      nameRegion: region
+    });
+  }
+
   getPagesCount = (total, denominator) => {
     const divisible = total % denominator === 0;
     const valueToBeAdded = divisible ? 0 : 1;
@@ -73,7 +87,7 @@ class MainPage extends Component {
   };
 
   render() {
-    const { aocs, currentStart, totalResults, coords, isLoading } = this.state;
+    const { aocs, currentStart, totalResults, coords, isLoading, searchMethod, nameRegion } = this.state;
     const showPrevLink = 1 < currentStart;
     const showNextLink = totalResults > currentStart;
 
@@ -84,7 +98,7 @@ class MainPage extends Component {
             <SearchBar />
           </div>
           <div className="col-12 col-md-6 col-lg-4">
-            <Map afterClick={this.setCoords} />
+            <Map afterClick={this.setCoords} searchMethod={this.setSearchMethod} getNameRegion={this.getNameRegion} />
           </div>
           <div className="col-12 col-md-6 col-lg-4">
             <GeoButton afterClick={this.setCoords} />
@@ -103,11 +117,19 @@ class MainPage extends Component {
           </div>
           {coords.latitude && (
             <div className="col-12">
+              {(searchMethod === "map") ? 
               <ResultsList
                 coords={coords}
                 results={aocs}
                 isLoading={isLoading}
-              />
+                nameRegion={nameRegion}
+                /> : 
+                <ResultsList
+                coords={coords}
+                results={aocs}
+                isLoading={isLoading}
+                />
+              }
             </div>
           )}
         </section>

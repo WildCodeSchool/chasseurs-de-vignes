@@ -3,6 +3,7 @@ import "./Result.css";
 import { getDistance } from "geolib";
 import RandomImage from "../RandomImage/RandomImage";
 
+
 function Result({
   latitude,
   longitude,
@@ -26,6 +27,7 @@ function Result({
       className="ResultsList__items col-12 col-sm-6 col-md-4 col-lg-3 no-padding"
       key={id}
     >
+
       <p className="Result-km">{distance} km</p>
       <RandomImage />
       <div className="Result-infos">
