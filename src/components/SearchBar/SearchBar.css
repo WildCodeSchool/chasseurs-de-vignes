@@ -46,8 +46,8 @@
 
 .react-autosuggest__suggestions-container ul li {
     list-style: none;
-    padding: 10px 0px 10px 0px;
-    border-top: 1px solid rgb(177, 169, 140);
+    padding: 15px 10px 15px 10px;
+    border-top: 1px dashed rgb(177, 169, 140);
 }
 .react-autosuggest__suggestions-container ul li:nth-child(1){
     border-top: 0;
