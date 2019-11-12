@@ -7,7 +7,8 @@ function Results({
   results,
   isLoading,
   coords: { latitude, longitude },
-  nameRegion
+  nameRegion,
+  currentRadius
 }) {
   return (
     <div className="ResultsList">
@@ -21,7 +22,7 @@ function Results({
       <div className={isLoading ? `ResultsList--hidden` : ""}>
         <div className="ResultsList__wrapper">
           <h3 class="results__title">
-            <span>8</span> <p>AOC à -50km de ma recherche</p>
+            <span>8</span> <p>AOC à -{currentRadius / 1000}km de ma recherche</p>
           </h3>
           {results.length > 0 && (
             <>

@@ -164,6 +164,7 @@ class MainPage extends Component {
                       coords={coords}
                       results={aocs}
                       isLoading={isLoading}
+                      currentRadius={radius}
                       nameRegion={nameRegion}
                     />
                   ) : (
@@ -171,6 +172,7 @@ class MainPage extends Component {
                       coords={coords}
                       results={aocs}
                       isLoading={isLoading}
+                      currentRadius={radius}
                     />
                   )}
                 </div>

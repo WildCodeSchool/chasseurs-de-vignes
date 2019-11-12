@@ -1,4 +1,5 @@
 import React from "react";
+import "./PageNavigation.css";
 
 const PageNavigation = props => {
   const {
@@ -17,18 +18,14 @@ const PageNavigation = props => {
 				${loading ? "greyed-out" : ""}
 				`}
         onClick={handlePrevClick}
-      >
-        Prev
-      </button>
+      ></button>
       <button
         className={`
 				${showNextLink ? "show" : "hide"}
 				${loading ? "greyed-out" : ""}
 				`}
         onClick={handleNextClick}
-      >
-        Next
-      </button>
+      ></button>
     </div>
   );
 };

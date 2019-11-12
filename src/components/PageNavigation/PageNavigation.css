@@ -1,0 +1,9 @@
+.PageNavigation button {
+    background: url(./images/arrow.png) center no-repeat #1E1E1E;
+    background-size: 10px;
+}
+
+.PageNavigation button:nth-child(2) {
+    background: url(./images/arrow_r.png) center no-repeat #1E1E1E;
+    background-size: 10px;
+}
