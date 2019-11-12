@@ -9,14 +9,14 @@ function Navbar({ isMobile, onBurgerButton }) {
   return (
     <div className="Navbar">
       <ul className="Navbar__group">
-        <li>
-          <NavLink activeClassName="Navbar__items--active" className="Navbar__items" to="/search">Search</NavLink>
+        <li className="Navbar__items__wrapper">
+          <NavLink activeClassName="Navbar__items__link--active" className="Navbar__items__link" to="/search"></NavLink>
         </li>
-        <li className="Navbar__items">
-          <NavLink activeClassName="Navbar__items--active" className="Navbar__items" to="/map">Map</NavLink>
+        <li className="Navbar__items__wrapper">
+          <NavLink activeClassName="Navbar__items__link--active" className="Navbar__items__link" to="/map"></NavLink>
         </li>
-        <li className="Navbar__items">
-          <NavLink activeClassName="Navbar__items--active" className="Navbar__items" to="/geolocation">Geolocation</NavLink>
+        <li className="Navbar__items__wrapper">
+          <NavLink activeClassName="Navbar__items__link--active" className="Navbar__items__link" to="/geolocation"></NavLink>
         </li>
       </ul>
     </div>

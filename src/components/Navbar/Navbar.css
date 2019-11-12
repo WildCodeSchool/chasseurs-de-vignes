@@ -1,6 +1,7 @@
-.Navbar__wrapper {
+.Navbar {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     width: 100%;
     background: #1E1E1E;
 }
@@ -11,29 +12,48 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    width: 100%;
 }
 
-.Navbar__items {
+.Navbar__items__wrapper {
+    list-style: none;
+}
+
+.Navbar__items__link {
    list-style: none;
 }
 
-.Navbar__items {
+.Navbar__items__link {
     display: flex;
     justify-content: center;
     box-sizing: border-box;
     align-items: center;
     width: 100px;
     height: 100px;
-    border:0;
     border-bottom: 5px solid #2e2e2e;
+    transition: 0.3s;
 }
 
-.Navbar__items--active {
-    border:0;
+.Navbar__items__link--active {
     border-bottom: 5px solid #F7F4E9;
 }
 
-.Navbar__items a img {
-    width: 35px;
-    height: auto;
+.Navbar__items__link:hover {
+    transition: 0.3s;
+    border-bottom: 5px solid #F7F4E9;
+}
+
+.Navbar__items__wrapper:nth-child(1) .Navbar__items__link {
+    background: url(./images/search.png) center no-repeat;
+    background-size: 35px;
+}
+
+.Navbar__items__wrapper:nth-child(2) .Navbar__items__link {
+    background: url(./images/map.png) center no-repeat;
+    background-size: 35px;
+}
+
+.Navbar__items__wrapper:nth-child(3) .Navbar__items__link {
+    background: url(./images/geo.png) center no-repeat;
+    background-size: 35px;
 }
