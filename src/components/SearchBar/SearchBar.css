@@ -33,12 +33,12 @@
 .react-autosuggest__suggestions-container {
     position: absolute;
     height: auto;
-    max-height: 150px;
+    max-height: 180px;
     overflow-y: scroll;
     background: #1E1E1E;
     box-sizing: border-box;
     border-radius: 0px 0px 5px 5px;
-    z-index: 1;
+    z-index: 10;
     border-top: 0;
 }
 
