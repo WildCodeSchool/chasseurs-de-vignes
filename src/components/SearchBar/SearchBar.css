@@ -1,15 +1,28 @@
-.SearchBar--suggestion{
-    width: 100%;
-    background-color:rgba(231, 231, 231, 0.671);
-
+.functions__search__method {
+    display: flex;
+    padding: 0 0px;
+    margin-top: 25px;
+    margin-bottom: 5px;
 }
 
-.react-autosuggest__input{
+.react-autosuggest__container {
     width: 100%;
 }
 
+.react-autosuggest__container input {
+    width: 100%;
+    box-sizing: border-box;
+    border:0;
+    font-size: 15px;
+    padding: 15px;
+    background: #F7F4E9;
+}
 
-
-@media screen and (max-width: 768px) {
-    
+.functions__search__submit {
+    border:0;
+    background:url(./images/search.png) center no-repeat #1E1E1E;
+    background-size: 15px;
+    padding: 0 30px;
+    border:1px solid #F7F4E9;
+    cursor: pointer;
 }

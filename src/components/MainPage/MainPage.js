@@ -72,17 +72,17 @@ class MainPage extends Component {
     });
   }
 
-  setSearchMethod = (type) => {
+  setSearchMethod = type => {
     this.setState({
       searchMethod: type
     });
-  }
+  };
 
-  getNameRegion = (region) => {
+  getNameRegion = region => {
     this.setState({
       nameRegion: region
     });
-  }
+  };
 
   getPagesCount = (total, denominator) => {
     const divisible = total % denominator === 0;
@@ -98,28 +98,45 @@ class MainPage extends Component {
   };
 
   render() {
-    const { radius, aocs, currentStart, totalResults, coords, isLoading, searchMethod, nameRegion } = this.state;
+    const {
+      radius,
+      aocs,
+      currentStart,
+      totalResults,
+      coords,
+      isLoading,
+      searchMethod,
+      nameRegion
+    } = this.state;
     const showPrevLink = 1 < currentStart;
     const showNextLink = totalResults > currentStart;
 
     return (
-      <div className="MainPage">
-        <section className="container__functions row">
-          <div className="col-12 col-lg-4">
-            <div className="container__functions__items">
-              <div className="container__functions__open">
-                <Switch>
-                  <Route path="/search">
-                    <SearchBar afterClick={this.setCoords} />
-                  </Route>
-                  <Route path="/map">
-                    <Map afterClick={this.setCoords} searchMethod={this.setSearchMethod} getNameRegion={this.getNameRegion} />
-                  </Route>
-                  <Route path="/geolocation">
-                    <GeoButton afterClick={this.setCoords} />
-                  </Route>
-                </Switch>
-              </div>
+      <main className="MainPage">
+        <section className="MainPage__wrapper MainPage__left">
+          <div className="functions__wrapper">
+            <div className="functions__wrapper__line">
+              <Switch>
+                <Route path="/search">
+                  <h2 className="functions__title">Rechercher une AOC</h2>
+                  <p className="functions__desc">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    At, voluptate! Illo beatae voluptatem, qui explicabo modi,
+                    ratione repudiandae pariatur vel iusto est?
+                  </p>
+                  <SearchBar afterClick={this.setCoords} />
+                </Route>
+                <Route path="/map">
+                  <Map
+                    afterClick={this.setCoords}
+                    searchMethod={this.setSearchMethod}
+                    getNameRegion={this.getNameRegion}
+                  />
+                </Route>
+                <Route path="/geolocation">
+                  <GeoButton afterClick={this.setCoords} />
+                </Route>
+              </Switch>
             </div>
           </div>
         </section>
@@ -137,23 +154,24 @@ class MainPage extends Component {
           </div>
           {coords.latitude && (
             <div className="col-12">
-              {(searchMethod === "map") ? 
-              <ResultsList
-                coords={coords}
-                results={aocs}
-                isLoading={isLoading}
-                nameRegion={nameRegion}
-                /> : 
+              {searchMethod === "map" ? (
                 <ResultsList
-                coords={coords}
-                results={aocs}
-                isLoading={isLoading}
+                  coords={coords}
+                  results={aocs}
+                  isLoading={isLoading}
+                  nameRegion={nameRegion}
                 />
-              }
+              ) : (
+                <ResultsList
+                  coords={coords}
+                  results={aocs}
+                  isLoading={isLoading}
+                />
+              )}
             </div>
           )}
         </section>
-      </div>
+      </main>
     );
   }
 }

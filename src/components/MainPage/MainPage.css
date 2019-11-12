@@ -3,3 +3,64 @@
     height: 0;
     overflow: hidden;
 }
+
+.MainPage {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+}
+
+.MainPage__wrapper {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.MainPage__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding:0%;
+}
+
+.MainPage__left::before {
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    z-index: -1;
+    background-image: url(./images/bg-home.jpg);
+    background-size: cover;
+    filter: grayscale(70%) contrast(115%);
+}
+
+.functions__wrapper {
+    background: rgba(30, 30, 30, 0.7);
+    border-radius: 0px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px 5px;
+    text-align: center;
+    color: #F7F4E9;
+}
+
+.functions__wrapper__line {
+    border: 0px solid #F7F4E9;
+    border-radius: 5px;
+    padding: 30px 20px;
+}
+
+.functions__title {
+    margin:0;
+    font-family: 'Cinzel Decorative', cursive;
+}
+
+.functions__desc {
+    line-height: 22px;
+}

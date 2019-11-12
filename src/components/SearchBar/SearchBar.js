@@ -106,7 +106,7 @@ class SearchBar extends React.Component {
     };
     return (
       <div>
-        <form onSubmit={this.getResultat}>
+        <form onSubmit={this.getResultat} className="functions__search__method">
           <Autosuggest
             name="AOC_Searched"
             id="AOC_Searched"
@@ -117,7 +117,7 @@ class SearchBar extends React.Component {
             renderSuggestion={renderSuggestion}
             inputProps={inputProps}
           />
-          <button type="submit">submit</button>
+          <button type="submit" className="functions__search__submit"></button>
         </form>
       </div>
     );
