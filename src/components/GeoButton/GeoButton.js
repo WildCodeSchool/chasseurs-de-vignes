@@ -1,4 +1,5 @@
 import React from "react";
+import "./GeoButton.css";
 
 function GeoButton({ afterClick }) {
 
@@ -14,8 +15,8 @@ function GeoButton({ afterClick }) {
   };
 
   return (
-    <div className="GeoButton">
-      <button onClick={getPosition}>Locate me</button>
+    <div className="GeoButton functions__geo__method">
+      <button onClick={getPosition}><span>Me géolocaliser</span></button>
     </div>
   );
 }

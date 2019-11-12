@@ -1,4 +1,5 @@
 import React from "react";
+import "./Map.css";
 import France from "@svg-maps/france.regions";
 import { SVGMap } from "react-svg-map";
 import "react-svg-map/lib/index.css";
@@ -95,7 +96,7 @@ function Map({ afterClick, searchMethod, getNameRegion }) {
     getNameRegion(name)
   };
   return (
-    <div className="Map">
+    <div className="Map functions__map__method">
       <SVGMap map={France} onLocationClick={event => getPostionRegion(event)} />
     </div>
   );

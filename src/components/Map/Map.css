@@ -1,0 +1,11 @@
+
+.functions__map__method {
+    display: flex;
+    padding: 0 30px;
+    margin-top: 25px;
+    margin-bottom: 5px;
+}
+
+.svg-map__location {
+    fill: #F7F4E9 !important;
+}

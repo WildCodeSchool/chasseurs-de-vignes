@@ -127,6 +127,12 @@ class MainPage extends Component {
                   <SearchBar afterClick={this.setCoords} />
                 </Route>
                 <Route path="/map">
+                  <h2 className="functions__title">Rechercher une AOC</h2>
+                  <p className="functions__desc">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    At, voluptate! Illo beatae voluptatem, qui explicabo modi,
+                    ratione repudiandae pariatur vel iusto est?
+                  </p>
                   <Map
                     afterClick={this.setCoords}
                     searchMethod={this.setSearchMethod}
@@ -134,6 +140,12 @@ class MainPage extends Component {
                   />
                 </Route>
                 <Route path="/geolocation">
+                  <h2 className="functions__title">Rechercher une AOC</h2>
+                  <p className="functions__desc">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    At, voluptate! Illo beatae voluptatem, qui explicabo modi,
+                    ratione repudiandae pariatur vel iusto est?
+                  </p>
                   <GeoButton afterClick={this.setCoords} />
                 </Route>
               </Switch>
