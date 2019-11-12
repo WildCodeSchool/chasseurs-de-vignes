@@ -17,6 +17,9 @@
 
 .Navbar__items__wrapper {
     list-style: none;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .Navbar__items__link {
@@ -28,7 +31,8 @@
     justify-content: center;
     box-sizing: border-box;
     align-items: center;
-    width: 100px;
+    width: 100%;
+    max-width: 100px;
     height: 100px;
     border-bottom: 5px solid #2e2e2e;
     transition: 0.3s;
