@@ -152,36 +152,39 @@ class MainPage extends Component {
             </div>
           </div>
         </section>
-        <section className="container__returns row">
-          <div className={isLoading ? `MainPage__results--hidden` : ""}>
-            <div className="col-12">
-              <PageNavigation
-                showPrevLink={showPrevLink}
-                showNextLink={showNextLink}
-                handlePrevClick={() => this.handlePageClick("prev")}
-                handleNextClick={() => this.handlePageClick("next")}
-              />
-              <Filter changeRadius={this.setRadius} currentRadius={radius} />
-            </div>
+        <section className="MainPage__wrapper MainPage__right">
+          <div class="button__arrow__wrapper">
+            <button></button>
           </div>
-          {coords.latitude && (
-            <div className="col-12">
-              {searchMethod === "map" ? (
-                <ResultsList
-                  coords={coords}
-                  results={aocs}
-                  isLoading={isLoading}
-                  nameRegion={nameRegion}
-                />
-              ) : (
-                <ResultsList
-                  coords={coords}
-                  results={aocs}
-                  isLoading={isLoading}
-                />
+          <div className={isLoading ? `MainPage__results--hidden` : ""}>
+              {coords.latitude && (
+                <div className="col-12">
+                  {searchMethod === "map" ? (
+                    <ResultsList
+                      coords={coords}
+                      results={aocs}
+                      isLoading={isLoading}
+                      nameRegion={nameRegion}
+                    />
+                  ) : (
+                    <ResultsList
+                      coords={coords}
+                      results={aocs}
+                      isLoading={isLoading}
+                    />
+                  )}
+                </div>
               )}
+              <div className="results__options">
+                <Filter changeRadius={this.setRadius} currentRadius={radius} />
+                <PageNavigation
+                  showPrevLink={showPrevLink}
+                  showNextLink={showNextLink}
+                  handlePrevClick={() => this.handlePageClick("prev")}
+                  handleNextClick={() => this.handlePageClick("next")}
+                />
+              </div>
             </div>
-          )}
         </section>
       </main>
     );

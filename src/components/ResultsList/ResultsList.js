@@ -9,7 +9,6 @@ function Results({
   coords: { latitude, longitude },
   nameRegion
 }) {
-
   return (
     <div className="ResultsList">
       {isLoading && (
@@ -20,19 +19,23 @@ function Results({
         </div>
       )}
       <div className={isLoading ? `ResultsList--hidden` : ""}>
-        <h2>{nameRegion}</h2>
-        {results.length > 0 && (
-          <div className="ResultsList__group row">
-            {results.map((result, index) => (
-              <Result
-                key={latitude + longitude + index}
-                latitude={latitude}
-                longitude={longitude}
-                {...result.fields}
-              />
-            ))}
-          </div>
-        )}
+        <div className="ResultsList__wrapper">
+          <h3 class="results__title">
+            <span>8</span> <p>AOC à -50km de ma recherche</p>
+          </h3>
+          {results.length > 0 && (
+            <>
+              {results.map((result, index) => (
+                <Result
+                  key={latitude + longitude + index}
+                  latitude={latitude}
+                  longitude={longitude}
+                  {...result.fields}
+                />
+              ))}
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
