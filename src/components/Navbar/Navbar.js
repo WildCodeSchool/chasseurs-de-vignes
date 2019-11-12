@@ -17,13 +17,13 @@ function Navbar({ isMobile, onBurgerButton }) {
           <Link to="/">Accueil</Link>
           </li>
           <li className="Navbar-group-item">
-            <Link to="/search-bar">Search</Link>
+            <Link to="/search">Search</Link>
           </li>
           <li className="Navbar-group-item">
-            <Link to="/search-map">Map</Link>
+            <Link to="/map">Map</Link>
           </li>
           <li className="Navbar-group-item">
-            <Link to="/search-geolocation">Geolocation</Link>
+            <Link to="/geolocation">Geolocation</Link>
           </li>
         </ul>
       </div>
