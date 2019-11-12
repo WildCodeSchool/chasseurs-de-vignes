@@ -11,10 +11,7 @@ class App extends Component {
     return (
       <div className="App container-fluid">
         <Header />
-        <Switch>
-          <Route exact path="/" component={MainPage} />
-          <Route path="/about-us" component={AboutUs} />
-        </Switch>
+        <MainPage />
       </div>
     );
   }

@@ -6,7 +6,8 @@ import SearchBar from "../SearchBar/SearchBar";
 import GeoButton from "../GeoButton/GeoButton";
 import ResultsList from "../ResultsList/ResultsList";
 import Map from "../Map/Map";
-import Filter from "../Filter/Filter"
+import Filter from "../Filter/Filter";
+import { Switch, Route } from "react-router-dom";
 
 const apiURL = `https://plateforme.api-agro.fr/api/records/1.0/search/?dataset=delimitation-parcellaire-des-aoc-viticoles`;
 const rows = 12;
@@ -107,21 +108,17 @@ class MainPage extends Component {
           <div className="col-12 col-lg-4">
             <div className="container__functions__items">
               <div className="container__functions__open">
-              <SearchBar afterClick={this.setCoords} />
-              </div>
-            </div>
-          </div>
-          <div className="col-12 col-md-6 col-lg-4">
-            <div className="container__functions__items">
-              <div className="container__functions__open">
-                <Map afterClick={this.setCoords} searchMethod={this.setSearchMethod} getNameRegion={this.getNameRegion} />
-              </div>
-            </div>
-          </div>
-          <div className="col-12 col-md-6 col-lg-4">
-            <div className="container__functions__items">
-              <div className="container__functions__open">
-                <GeoButton afterClick={this.setCoords} />
+                <Switch>
+                  <Route path="/search">
+                    <SearchBar afterClick={this.setCoords} />
+                  </Route>
+                  <Route path="/map">
+                    <Map afterClick={this.setCoords} searchMethod={this.setSearchMethod} getNameRegion={this.getNameRegion} />
+                  </Route>
+                  <Route path="/geolocation">
+                    <GeoButton afterClick={this.setCoords} />
+                  </Route>
+                </Switch>
               </div>
             </div>
           </div>
