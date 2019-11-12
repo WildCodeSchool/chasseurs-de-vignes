@@ -1,13 +1,16 @@
 import React from "react";
-import logo from "./logo-wine-not--white.png";
+import "./Logo.css";
+import { Link } from "react-router-dom";
 
 function Logo() {
   return (
-    <div className="Header-brand">
-      <a href="./">
-        <img src={logo} alt="Logo" />
-      </a>
-    </div>
+    <div className="Logo">
+      <Link to="/">
+        <div href="./" className="Logo__wrapper">
+          <span>LOGO</span>
+        </div>
+        </Link>
+      </div>
   );
 }
 

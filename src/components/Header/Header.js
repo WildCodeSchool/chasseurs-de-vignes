@@ -9,28 +9,24 @@ class Header extends Component {
     this.state = {
       isMobile: false
     };
-    this.toggleMenu = this.toggleMenu.bind(this)
+    this.toggleMenu = this.toggleMenu.bind(this);
   }
-  
+
   toggleMenu(isMobile) {
     this.setState({
       isMobile
-    })
+    });
   }
 
   render() {
     const { isMobile } = this.state;
     return (
-      <header className="row">
-        <div className="col-12 no-padding">
-          <div className={isMobile ? "Header Header--mobile" : "Header"}>
-            <Logo />
-            <Navbar
+      <header className="Header">
+        <Logo />
+        <Navbar
               onBurgerButton={this.toggleMenu}
               isMobile={isMobile}
             />
-          </div>
-        </div>
       </header>
     );
   }
