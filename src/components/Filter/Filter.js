@@ -28,7 +28,12 @@ class Filter extends Component {
     const { currentRadius } = this.props;
     return (
       <div className="Filter">
-        <button onClick={this.decrementRadius}>-</button>
+        {Number(currentRadius) === 10000 ? (
+          ""
+        ) : (
+          <button onClick={this.decrementRadius}>-</button>
+        )}
+
         <span>{currentRadius / 1000} km</span>
         <button onClick={this.incrementRadius}>+</button>
       </div>
