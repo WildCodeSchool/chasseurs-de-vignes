@@ -166,6 +166,7 @@ class MainPage extends Component {
                       isLoading={isLoading}
                       currentRadius={radius}
                       nbResults={totalResults}
+                      searchMethod={searchMethod}
                       nameRegion={nameRegion}
                     />
                   ) : (
