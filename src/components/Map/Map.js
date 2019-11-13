@@ -1,7 +1,7 @@
 import React from "react";
 import "./Map.css";
 import France from "@svg-maps/france.regions";
-import { SVGMap } from "react-svg-map";
+import { RadioSVGMap } from "react-svg-map";
 import "react-svg-map/lib/index.css";
 
 const regions = [
@@ -97,7 +97,7 @@ function Map({ afterClick, searchMethod, getNameRegion }) {
   };
   return (
     <div className="Map functions__map__method">
-      <SVGMap map={France} onLocationClick={event => getPostionRegion(event)} />
+      <RadioSVGMap map={France} onLocationClick={event => getPostionRegion(event)} />
     </div>
   );
 }

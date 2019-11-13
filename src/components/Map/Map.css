@@ -8,4 +8,9 @@
 
 .svg-map__location {
     fill: #F7F4E9 !important;
+    cursor: pointer !important;
 }
+    .svg-map__location:focus, .svg-map__location:hover {
+      fill: #713436 !important;
+      outline: 0 !important; }
+   
