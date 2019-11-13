@@ -135,8 +135,8 @@
 .results__options button {
     width: 40px;
     height: 40px;
-    background: #1E1E1E;
     border:0;
     font-size: 17px;
     color: #F7F4E9;
+    cursor: pointer;
 }

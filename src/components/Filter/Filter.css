@@ -2,6 +2,10 @@
     display: flex;
 }
 
+.Filter button {
+    background: #1E1E1E;
+}
+
 .Filter span {
     border:1px solid #1E1E1E;
     display: flex;
