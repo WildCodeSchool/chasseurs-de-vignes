@@ -97,7 +97,7 @@ function Map({ afterClick, searchMethod, getNameRegion }) {
   };
   return (
     <div className="Map functions__map__method">
-      <RadioSVGMap map={France} onLocationClick={event => getPostionRegion(event)} />
+      <RadioSVGMap map={France} onLocationFocus={event => getPostionRegion(event)} />
     </div>
   );
 }
