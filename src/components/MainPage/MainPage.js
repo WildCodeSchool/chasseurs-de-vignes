@@ -98,6 +98,12 @@ class MainPage extends Component {
       : this.fetchAocs(currentStart - rows);
   };
 
+  hideSearchMethod = () => {
+    const { viewMethod } = this.props;
+    const changeView = !viewMethod;
+    this.props.changeView(changeView);
+  };
+
   render() {
     const {
       radius,
@@ -109,10 +115,14 @@ class MainPage extends Component {
       searchMethod,
       nameRegion
     } = this.state;
+    const { viewMethod } = this.props;
 
     return (
       <main className="MainPage">
-        <section className="MainPage__wrapper MainPage__left">
+        <section
+          className={`MainPage__wrapper MainPage__left ${!viewMethod &&
+            `MainPage__left--hide`}`}
+        >
           <div className="functions__wrapper">
             <div className="functions__wrapper__line">
               <Switch>
@@ -151,9 +161,12 @@ class MainPage extends Component {
             </div>
           </div>
         </section>
-        <section className="MainPage__wrapper MainPage__right">
+        <section
+          className={`MainPage__wrapper MainPage__right ${!viewMethod &&
+            `MainPage__right--show`}`}
+        >
           <div className="button__arrow__wrapper">
-            <button></button>
+            <button onClick={this.hideSearchMethod}></button>
           </div>
           {isLoading && (
             <div className="Loader__content">

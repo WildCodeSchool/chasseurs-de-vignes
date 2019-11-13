@@ -18,14 +18,20 @@ class Header extends Component {
     });
   }
 
+  hideSearchMethod = view => {
+    this.props.changeView(view);
+  };
+
   render() {
     const { isMobile } = this.state;
+    const { viewMethod } = this.props;
     return (
       <header className="Header">
         <Logo />
         <Navbar
               onBurgerButton={this.toggleMenu}
               isMobile={isMobile}
+              changeViewNavbar={(view) => this.hideSearchMethod(view)} viewMethod={viewMethod}
             />
       </header>
     );
