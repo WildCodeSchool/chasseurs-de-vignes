@@ -1,6 +1,8 @@
 .ResultsList {
+    width: 100%;
+    display: inline-block;
     position: relative;
-    margin:0;
+    margin:20px 20px 90px 20px;
 }
 
 .ResultsList--hidden {
@@ -9,21 +11,13 @@
     overflow: hidden;
 }
 
-.ResultsList__wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    align-content:flex-start;
-    overflow-y: scroll;
-    padding: 20px 20px 90px 20px;
-}
-
 .results__title {
     width: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     font-family: 'Cinzel Decorative', cursive;
-    margin:10px 0px 20px 5px;
+    margin:5px 5px 20px 5px;
 }
 
 .results__title span {
@@ -34,7 +28,9 @@
     line-height: 30px;
     color: #F7F4E9;
     padding:5px 13px 0px 13px;
-    margin-right: 10px;
+    margin-right: 15px;
+    display: flex;
+    flex-shrink: 0;
 }
 
 .results__title p {

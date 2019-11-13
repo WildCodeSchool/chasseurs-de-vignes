@@ -154,40 +154,38 @@ class MainPage extends Component {
           <div className="button__arrow__wrapper">
             <button></button>
           </div>
-          <div className={isLoading ? `MainPage__results--hidden` : ""}>
-            {coords.latitude && (
-              <div className="col-12">
-                {searchMethod === "map" ? (
-                  <ResultsList
-                    coords={coords}
-                    results={aocs}
-                    isLoading={isLoading}
-                    currentRadius={radius}
-                    nbResults={totalResults}
-                    nameRegion={nameRegion}
-                  />
-                ) : (
-                  <ResultsList
-                    coords={coords}
-                    results={aocs}
-                    isLoading={isLoading}
-                    currentRadius={radius}
-                    nbResults={totalResults}
-                  />
-                )}
-              </div>
-            )}
-            <div className="results__options">
-              <Filter changeRadius={this.setRadius} currentRadius={radius} />
-              {totalResults && (
-                <PageNavigation
-                  currentStart={currentStart}
-                  totalResults={totalResults}
-                  rows={rows}
-                  handleClick={action => this.handlePageClick(action)}
+          {coords.latitude && (
+            <>
+              {searchMethod === "map" ? (
+                <ResultsList
+                  coords={coords}
+                  results={aocs}
+                  isLoading={isLoading}
+                  currentRadius={radius}
+                  nbResults={totalResults}
+                  nameRegion={nameRegion}
+                />
+              ) : (
+                <ResultsList
+                  coords={coords}
+                  results={aocs}
+                  isLoading={isLoading}
+                  currentRadius={radius}
+                  nbResults={totalResults}
                 />
               )}
-            </div>
+            </>
+          )}
+          <div className="results__options">
+            <Filter changeRadius={this.setRadius} currentRadius={radius} />
+            {totalResults && (
+              <PageNavigation
+                currentStart={currentStart}
+                totalResults={totalResults}
+                rows={rows}
+                handleClick={action => this.handlePageClick(action)}
+              />
+            )}
           </div>
         </section>
       </main>
