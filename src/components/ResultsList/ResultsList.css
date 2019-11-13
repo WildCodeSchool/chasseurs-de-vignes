@@ -27,10 +27,13 @@
 }
 
 .results__title span {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: normal;
     background: #1E1E1E;
-    height: 20px;
+    height: 30px;
+    line-height: 30px;
     color: #F7F4E9;
-    padding:5px 13px;
+    padding:5px 13px 0px 13px;
     margin-right: 10px;
 }
 
