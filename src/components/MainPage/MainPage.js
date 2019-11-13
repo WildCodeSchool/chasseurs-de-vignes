@@ -36,7 +36,7 @@ class MainPage extends Component {
       {
         coords
       },
-      this.fetchAocs
+      () => this.fetchAocs(0)
     );
   };
 
@@ -45,11 +45,11 @@ class MainPage extends Component {
       {
         radius
       },
-      this.fetchAocs
+      () => this.fetchAocs(0)
     );
   };
 
-  async fetchAocs(updatedPageNo = 0) {
+  async fetchAocs(updatedPageNo) {
     const pageNumber = updatedPageNo ? updatedPageNo : "";
     const {
       radius,
@@ -91,10 +91,10 @@ class MainPage extends Component {
   };
 
   handlePageClick = type => {
-    const { currentStart, rows, query } = this.state;
+    const { currentStart, rows } = this.state;
     const updatedPageNo =
       "prev" === type ? currentStart - rows : currentStart + rows;
-    this.fetchAocs(updatedPageNo, query);
+    this.fetchAocs(updatedPageNo);
   };
 
   render() {
@@ -165,6 +165,7 @@ class MainPage extends Component {
                       results={aocs}
                       isLoading={isLoading}
                       currentRadius={radius}
+                      nbResults={totalResults}
                       nameRegion={nameRegion}
                     />
                   ) : (
@@ -173,6 +174,7 @@ class MainPage extends Component {
                       results={aocs}
                       isLoading={isLoading}
                       currentRadius={radius}
+                      nbResults={totalResults}
                     />
                   )}
                 </div>
