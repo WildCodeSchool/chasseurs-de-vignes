@@ -101,6 +101,7 @@ class SearchBar extends React.Component {
     const { value, suggestions } = this.state;
     const inputProps = {
       placeholder: "Tape ton AOC",
+      size: "500",
       value,
       onChange: this.onChange
     };
