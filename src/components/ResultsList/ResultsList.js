@@ -12,6 +12,19 @@ function Results({
   nbResults,
   searchMethod
 }) {
+
+ const whatSearchMethod = () => {
+    if (searchMethod  === "map") {
+      return(<h3 class="results__title">
+        <span>{nbResults}</span> <p>AOC à -{currentRadius / 1000}km du point central de la région {nameRegion}</p>
+    </h3>)
+    } else {
+     return( <h3 class="results__title">
+      <span>{nbResults}</span> <p>AOC à -{currentRadius / 1000}km de ma recherche</p>
+    </h3>)
+    }
+  }
+
   return (
     <div className="ResultsList">
       {isLoading && (
@@ -23,10 +36,7 @@ function Results({
       )}
       <div className={isLoading ? `ResultsList--hidden` : ""}>
         <div className="ResultsList__wrapper">
-          <h3 class="results__title">
-            <span>{nbResults}</span> <p>AOC à -{currentRadius / 1000}km de ma recherche</p>
-            <p>{searchMethod === "map" && nameRegion}</p>
-          </h3>
+          {whatSearchMethod()}
           {results.length > 0 && (
             <>
               {results.map((result, index) => (

@@ -23,6 +23,7 @@ class SearchBar extends React.Component {
     event.preventDefault();
     const { latitude, longitude } = this.state.coords;
     this.props.afterClick({ latitude, longitude });
+    this.props.searchMethod("bar")
   }
 
   async getValue() {

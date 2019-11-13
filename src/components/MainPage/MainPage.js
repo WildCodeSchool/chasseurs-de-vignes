@@ -124,7 +124,10 @@ class MainPage extends Component {
                     At, voluptate! Illo beatae voluptatem, qui explicabo modi,
                     ratione repudiandae pariatur vel iusto est?
                   </p>
-                  <SearchBar afterClick={this.setCoords} />
+                  <SearchBar
+                    afterClick={this.setCoords}
+                    searchMethod={this.setSearchMethod}
+                  />
                 </Route>
                 <Route path="/map">
                   <h2 className="functions__title">Rechercher une AOC</h2>
