@@ -1,13 +1,14 @@
 import React from "react";
 import "./GeoButton.css";
 
-function GeoButton({ afterClick }) {
+function GeoButton({ afterClick, searchMethod}) {
 
   const getPosition = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
         const { latitude, longitude } = position.coords;
         afterClick({ latitude, longitude });
+        searchMethod("geolocation")
       });
     } else {
       alert("Geolocation is not supported by this browser");

@@ -149,7 +149,10 @@ class MainPage extends Component {
                     At, voluptate! Illo beatae voluptatem, qui explicabo modi,
                     ratione repudiandae pariatur vel iusto est?
                   </p>
-                  <GeoButton afterClick={this.setCoords} />
+                  <GeoButton
+                    afterClick={this.setCoords}
+                    searchMethod={this.setSearchMethod}
+                  />
                 </Route>
               </Switch>
             </div>
@@ -162,7 +165,6 @@ class MainPage extends Component {
           <div className={isLoading ? `MainPage__results--hidden` : ""}>
               {coords.latitude && (
                 <div className="col-12">
-                  {searchMethod === "map" ? (
                     <ResultsList
                       coords={coords}
                       results={aocs}
@@ -171,14 +173,6 @@ class MainPage extends Component {
                       nbResults={totalResults}
                       searchMethod={searchMethod}
                       nameRegion={nameRegion}
-                    />
-                  ) : (
-                    <ResultsList
-                      coords={coords}
-                      results={aocs}
-                      isLoading={isLoading}
-                      currentRadius={radius}
-                      nbResults={totalResults}
                     />
                   )}
                 </div>
