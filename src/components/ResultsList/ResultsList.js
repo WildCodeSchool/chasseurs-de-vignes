@@ -1,7 +1,6 @@
 import React from "react";
 import "./ResultsList.css";
 import Result from "../Result/Result";
-import Loader from "../Loader/Loader";
 
 function Results({
   results,
@@ -13,15 +12,12 @@ function Results({
 }) {
   return (
     <div className="ResultsList">
-      {isLoading && (
-        <div className="Loader__content">
-          <Loader />
-        </div>
-      )}
-      <h3 className="results__title">
-        <span>{nbResults} AOC</span>{" "}
-        <p> à -{currentRadius / 1000}km de ma recherche</p>
-      </h3>
+      {!isLoading && 
+        <>
+        <h3 className="results__title">
+          <span>{nbResults} AOC</span>{" "}
+          <p> à -{currentRadius / 1000}km de ma recherche</p>
+        </h3>
       <div className="ResultsList__wrapper">
         {results.length > 0 && (
           <>
@@ -35,7 +31,9 @@ function Results({
             ))}
           </>
         )}
-      </div>
+        </div>
+        </>
+      }
     </div>
   );
 }

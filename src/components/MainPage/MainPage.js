@@ -8,6 +8,7 @@ import ResultsList from "../ResultsList/ResultsList";
 import Map from "../Map/Map";
 import Filter from "../Filter/Filter";
 import { Switch, Route } from "react-router-dom";
+import Loader from "../Loader/Loader";
 
 const apiURL = `https://plateforme.api-agro.fr/api/records/1.0/search/?dataset=delimitation-parcellaire-des-aoc-viticoles`;
 const rows = 12;
@@ -154,6 +155,11 @@ class MainPage extends Component {
           <div className="button__arrow__wrapper">
             <button></button>
           </div>
+          {isLoading && (
+            <div className="Loader__content">
+              <Loader />
+            </div>
+          )}
           {coords.latitude && (
             <>
               {searchMethod === "map" ? (
