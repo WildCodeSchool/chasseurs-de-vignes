@@ -1,8 +1,8 @@
 .functions__map__method {
     display: flex;
     padding: 0px;
-    margin-top: 25px;
-    margin-bottom: 5px;
+    margin: 25px auto 5px auto;
+    max-width: 300px;
 }
 
 .svg-map__location {

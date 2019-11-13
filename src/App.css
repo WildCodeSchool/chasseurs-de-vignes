@@ -6,3 +6,10 @@
     height: 100%;
     font-family: 'Josefin Sans', sans-serif;
 }
+
+/* LARGE */
+@media screen and (min-width: 1080px) {
+    .App {
+        flex-direction: row;
+    }
+  }
