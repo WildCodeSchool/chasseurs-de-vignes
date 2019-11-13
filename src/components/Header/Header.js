@@ -31,7 +31,7 @@ class Header extends Component {
         <Navbar
               onBurgerButton={this.toggleMenu}
               isMobile={isMobile}
-              changeViewNavbar={(view) => this.hideSearchMethod(view)} viewMethod={viewMethod}
+              changeView={(view) => this.hideSearchMethod(view)}
             />
       </header>
     );
