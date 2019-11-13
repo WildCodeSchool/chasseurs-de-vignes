@@ -1,9 +1,9 @@
-.PageNavigation button {
+.PageNavigation__button--prev {
     background: url(./images/arrow.png) center no-repeat #1E1E1E;
     background-size: 10px;
 }
 
-.PageNavigation button:nth-child(2) {
+.PageNavigationPageNavigation__button--next {
     background: url(./images/arrow_r.png) center no-repeat #1E1E1E;
     background-size: 10px;
 }

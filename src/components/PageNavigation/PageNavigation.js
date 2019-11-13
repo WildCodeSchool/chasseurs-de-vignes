@@ -1,33 +1,34 @@
 import React from "react";
 import "./PageNavigation.css";
 
-const PageNavigation = props => {
-  const {
-    showPrevLink,
-    showNextLink,
-    handlePrevClick,
-    handleNextClick,
-    loading
-  } = props;
+function PageNavigation(props) {
+  
+  const { handleClick, currentStart, totalResults, rows } = props;
+
+  const prevActionClick = () => {
+    handleClick("prev");
+  };
+  
+  const nextActionClick = () => {
+    handleClick("next");
+  };
 
   return (
     <div className="PageNavigation">
-      <button
-        className={`
-				${showPrevLink ? "show" : "hide"}
-				${loading ? "greyed-out" : ""}
-				`}
-        onClick={handlePrevClick}
-      ></button>
-      <button
-        className={`
-				${showNextLink ? "show" : "hide"}
-				${loading ? "greyed-out" : ""}
-				`}
-        onClick={handleNextClick}
-      ></button>
+      {currentStart > 0 && (
+        <button
+          className="PageNavigation__button--prev"
+          onClick={prevActionClick}
+        ></button>
+      )}
+      {currentStart + rows > !totalResults && (
+        <button
+          className="PageNavigation__button--next"
+          onClick={nextActionClick}
+        ></button>
+      )}
     </div>
   );
-};
+}
 
 export default PageNavigation;

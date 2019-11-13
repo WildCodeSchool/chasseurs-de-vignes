@@ -22,7 +22,7 @@ function Results({
       )}
       <div className={isLoading ? `ResultsList--hidden` : ""}>
         <div className="ResultsList__wrapper">
-          <h3 class="results__title">
+          <h3 className="results__title">
             <span>{nbResults}</span> <p>AOC à -{currentRadius / 1000}km de ma recherche</p>
           </h3>
           {results.length > 0 && (
