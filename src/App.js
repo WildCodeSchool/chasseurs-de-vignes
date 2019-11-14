@@ -9,19 +9,19 @@ class App extends Component {
     this.state = {
       viewMethod: true,
       fullPage: true
-    };
+    }
   }
 
   changeView = view => {
     this.setState({
       viewMethod: view
-    });
+    })
   };
 
   hideFull = view => {
     this.setState({
       fullPage: view
-    });
+    })
   };
 
   render() {

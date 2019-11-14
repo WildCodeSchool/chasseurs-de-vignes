@@ -205,7 +205,6 @@ class MainPage extends Component {
                 searchMethod={searchMethod}
                 nameRegion={nameRegion}
               />
-
               <div className="results__options">
                 <Filter changeRadius={this.setRadius} currentRadius={radius} />
                 {totalResults && (
