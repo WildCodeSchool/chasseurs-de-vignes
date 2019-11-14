@@ -114,8 +114,8 @@
     box-shadow: 0px 0px 10px #1E1E1E;
     display: flex;
     flex-direction: column;
+    transition: 0.4s;
 }
-
 
 /* LARGE */
 @media screen and (min-width: 1080px) {

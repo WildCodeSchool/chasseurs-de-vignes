@@ -85,7 +85,7 @@ const regions = [
   }
 ];
 
-function Map({ afterClick, searchMethod, getNameRegion }) {
+function Map({ afterClick, searchMethod, getNameRegion, changeView }) {
   const getPostionRegion = event => {
     const coordsRegion = regions.filter(
       x => x.id === event.target.getAttribute("id")
@@ -94,6 +94,7 @@ function Map({ afterClick, searchMethod, getNameRegion }) {
     afterClick({ latitude, longitude });
     searchMethod("map");
     getNameRegion(name)
+    changeView(false)
   };
   return (
     <div className="Map functions__map__method">

@@ -104,6 +104,10 @@ class MainPage extends Component {
     this.props.changeView(changeView);
   };
 
+  diviseScreen = view => {
+    this.props.changeView(view);
+  };
+
   render() {
     const {
       radius,
@@ -133,7 +137,10 @@ class MainPage extends Component {
                     At, voluptate! Illo beatae voluptatem, qui explicabo modi,
                     ratione repudiandae pariatur vel iusto est?
                   </p>
-                  <SearchBar afterClick={this.setCoords} />
+                  <SearchBar
+                    afterClick={this.setCoords}
+                    changeView={view => this.diviseScreen(view)}
+                  />
                 </Route>
                 <Route path="/map">
                   <h2 className="functions__title">Rechercher une AOC</h2>
@@ -146,6 +153,7 @@ class MainPage extends Component {
                     afterClick={this.setCoords}
                     searchMethod={this.setSearchMethod}
                     getNameRegion={this.getNameRegion}
+                    changeView={view => this.diviseScreen(view)}
                   />
                 </Route>
                 <Route path="/geolocation">
@@ -155,7 +163,10 @@ class MainPage extends Component {
                     At, voluptate! Illo beatae voluptatem, qui explicabo modi,
                     ratione repudiandae pariatur vel iusto est?
                   </p>
-                  <GeoButton afterClick={this.setCoords} />
+                  <GeoButton
+                    afterClick={this.setCoords}
+                    changeView={view => this.diviseScreen(view)}
+                  />
                 </Route>
               </Switch>
             </div>
