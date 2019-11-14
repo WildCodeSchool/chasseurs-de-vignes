@@ -1,11 +1,18 @@
+.HomePage {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
 .title_homepage {
-    font-style: italic;
     font-family : 'Cinzel Decorative', cursive;
-    text-align: right;
-};
+    margin: 0;
+}
 
 .text_homepage {
-    font-size: 30px;
+    padding:0 30px;
+    font-size: 22px;
+    margin-bottom: 30px;
 }
 
 .span_homepage {
@@ -13,13 +20,19 @@
 }
 
 .button_homepage {
+    display: flex;
+    justify-content: center;
+    margin:0 auto;
+    font-size: 16px;
+    padding: 15px;
     background: #C99A46;
-    color: #FFFFFF;
-    text-transform: uppercase;
-    font-size: 15px;
-    padding: 12px 0;
-    letter-spacing: 1px;
+    border: 1px solid #F7F4E9;
     cursor: pointer;
     text-decoration: none;
-    border-radius: 5px;
-};
+}
+
+.button_homepage span {
+    color: #F7F4E9;
+    text-transform: uppercase;
+    font-size: 15px;
+}
