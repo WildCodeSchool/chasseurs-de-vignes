@@ -55,6 +55,7 @@
 .Result__km img{
     max-width: 20px;
     max-height: 15px;
+    background: black;
 }
 
 .Result__infos {
