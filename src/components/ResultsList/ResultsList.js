@@ -12,8 +12,7 @@ function Results({
   nbResults,
   searchMethod
 }) {
-
-
+  
   const whatSearchMethod = () => {
     switch (searchMethod) {
       case 'map':
@@ -42,7 +41,6 @@ function Results({
         );
     }
    }
-
 
   return (
     <div className="ResultsList">
