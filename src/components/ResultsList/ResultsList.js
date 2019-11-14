@@ -16,9 +16,9 @@ function Results({
       case "map":
         return (
           <h3 class="results__title">
-            <span>{nbResults}</span>{" "}
+            <span>{nbResults} AOC</span>
             <p>
-              AOC à -{currentRadius / 1000}km du point central de la région{" "}
+              à -{currentRadius / 1000}km du point central de la région
               {nameRegion}
             </p>
           </h3>
@@ -26,15 +26,15 @@ function Results({
       case "geolocation":
         return (
           <h3 class="results__title">
-            <span>{nbResults}</span>{" "}
-            <p>AOC à -{currentRadius / 1000}km de ma position</p>
+            <span>{nbResults} AOC</span>
+            <p>à -{currentRadius / 1000}km de ma position</p>
           </h3>
         );
       case "bar":
         return (
           <h3 class="results__title">
-            <span>{nbResults}</span>{" "}
-            <p>AOC à -{currentRadius / 1000}km de ma recherche</p>
+            <span>{nbResults} AOC</span>
+            <p>à -{currentRadius / 1000}km de ma recherche</p>
           </h3>
         );
     }
@@ -56,7 +56,6 @@ function Results({
             ))}
           </>
         )}
-        }
       </div>
     </div>
   );
