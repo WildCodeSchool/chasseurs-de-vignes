@@ -96,12 +96,12 @@
 @media screen and (min-width: 200px) and (max-width: 1079px) {
     .functions__wrapper {
         height: 100%;
-        position: fixed;
         overflow-y: scroll;
+        box-sizing: content-box;
     }
 }
 
-    .MainPage__left--hide .functions__wrapper {
+.MainPage__left--hide .functions__wrapper {
     display: none;
 }
 
