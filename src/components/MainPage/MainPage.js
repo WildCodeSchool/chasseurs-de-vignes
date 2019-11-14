@@ -9,6 +9,7 @@ import Map from "../Map/Map";
 import Filter from "../Filter/Filter";
 import { Switch, Route } from "react-router-dom";
 import Loader from "../Loader/Loader";
+import PageNotFound from "../PageNotFound/PageNotFound";
 import HomePage from "../HomePage/HomePage";
 import AboutUs from "../AboutUs/AboutUs";
 
@@ -178,6 +179,9 @@ class MainPage extends Component {
                 <Route path="/about-us">
                   <AboutUs />
                 </Route>
+                <Route path="/*">
+                  <PageNotFound />
+                </Route>
               </Switch>
             </div>
           </div>
@@ -205,7 +209,6 @@ class MainPage extends Component {
                 searchMethod={searchMethod}
                 nameRegion={nameRegion}
               />
-
               <div className="results__options">
                 <Filter changeRadius={this.setRadius} currentRadius={radius} />
                 {totalResults && (

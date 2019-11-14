@@ -20,11 +20,13 @@ function Result({
       }
     ) / 1000
   ).toFixed(1);
+  const imageName = require('./images/homme.png')
 
   return (
+    
     <div className="Result">
       <div className="Result__wrapper">
-        <p className="Result__km">{distance} km</p>
+        {distance > 1 ? (<p className="Result__km"><img src={imageName} alt="" /> => {distance} km</p>) : (<p className="Result__km"><img src={imageName} alt="" /></p>)}
         <RandomImage />
         <div className="Result__infos">
           <h3 className="Result__title">AOC {denominati}</h3>

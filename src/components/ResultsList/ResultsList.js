@@ -15,28 +15,29 @@ function Results({
     switch (searchMethod) {
       case "map":
         return (
-          <h3 class="results__title">
+          <h3 className="results__title">
             <span>{nbResults} AOC</span>
             <p>
-              à -{currentRadius / 1000}km du point central de la région
-              {nameRegion}
+              à - de {currentRadius / 1000}km du point central de la région {nameRegion}
             </p>
           </h3>
         );
       case "geolocation":
         return (
-          <h3 class="results__title">
+          <h3 className="results__title">
             <span>{nbResults} AOC</span>
-            <p>à -{currentRadius / 1000}km de ma position</p>
+            <p>à - de {currentRadius / 1000}km de ma position</p>
           </h3>
         );
       case "bar":
         return (
-          <h3 class="results__title">
+          <h3 className="results__title">
             <span>{nbResults} AOC</span>
-            <p>à -{currentRadius / 1000}km de ma recherche</p>
+            <p>à - de {currentRadius / 1000}km de ma recherche</p>
           </h3>
         );
+      default:
+        return;
     }
   };
 
