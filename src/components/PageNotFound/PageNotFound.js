@@ -8,7 +8,7 @@ function PageNotFound() {
       <img
         className="PageNotFound__image"
         src="https://media.giphy.com/media/XGauQmWCNn3n2PEK3X/giphy.gif"
-        alt="Con de Mimes"
+        alt="Con de Mimes   "
       />
     </div>
   );
