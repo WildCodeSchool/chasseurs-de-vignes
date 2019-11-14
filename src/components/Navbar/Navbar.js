@@ -2,9 +2,10 @@ import React from "react";
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
 
-function Navbar({ isMobile, onBurgerButton, changeView }) {
+function Navbar({ changeView, hideFullPage }) {
   const hideSearchMethod = () => {
     changeView(true);
+    hideFullPage(false)
   };
   return (
     <div className="Navbar">

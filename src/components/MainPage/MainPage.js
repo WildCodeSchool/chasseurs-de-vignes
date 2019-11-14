@@ -120,13 +120,13 @@ class MainPage extends Component {
       searchMethod,
       nameRegion
     } = this.state;
-    const { viewMethod } = this.props;
+    const { viewMethod, fullPage } = this.props;
 
     return (
       <main className="MainPage">
         <section
-          className={`MainPage__wrapper MainPage__left ${!viewMethod &&
-            `MainPage__left--hide`}`}
+          className={`MainPage__wrapper MainPage__left ${fullPage &&
+            `MainPage__left--full`} ${!viewMethod && `MainPage__left--hide`}`}
         >
           <div className="functions__wrapper">
             <div className="functions__wrapper__line">
@@ -177,7 +177,8 @@ class MainPage extends Component {
           </div>
         </section>
         <section
-          className={`MainPage__wrapper MainPage__right ${!viewMethod &&
+          className={`MainPage__wrapper MainPage__right ${fullPage &&
+            `MainPage__right--hide`} ${!viewMethod &&
             `MainPage__right--show`}`}
         >
           <div className="button__arrow__wrapper">
@@ -208,19 +209,19 @@ class MainPage extends Component {
                   nbResults={totalResults}
                 />
               )}
+              <div className="results__options">
+                <Filter changeRadius={this.setRadius} currentRadius={radius} />
+                {totalResults && (
+                  <PageNavigation
+                    currentStart={currentStart}
+                    totalResults={totalResults}
+                    rows={rows}
+                    handleClick={action => this.handlePageClick(action)}
+                  />
+                )}
+              </div>
             </>
           )}
-          <div className="results__options">
-            <Filter changeRadius={this.setRadius} currentRadius={radius} />
-            {totalResults && (
-              <PageNavigation
-                currentStart={currentStart}
-                totalResults={totalResults}
-                rows={rows}
-                handleClick={action => this.handlePageClick(action)}
-              />
-            )}
-          </div>
         </section>
       </main>
     );
