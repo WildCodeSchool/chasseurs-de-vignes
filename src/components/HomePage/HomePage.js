@@ -20,7 +20,7 @@ class HomePage extends React.Component {
           </p>
         </div>
         <button className="button_homepage">
-          <Link to="/aboutus">À propos de Wine Note</Link>
+          <Link to="/about-us">À propos de Wine Note</Link>
         </button>
       </div>
     );
