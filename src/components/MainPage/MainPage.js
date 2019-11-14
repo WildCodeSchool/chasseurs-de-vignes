@@ -11,6 +11,7 @@ import { Switch, Route } from "react-router-dom";
 import Loader from "../Loader/Loader";
 import PageNotFound from "../PageNotFound/PageNotFound";
 import HomePage from "../HomePage/HomePage";
+import AboutUs from "../AboutUs/AboutUs";
 
 const apiURL = `https://plateforme.api-agro.fr/api/records/1.0/search/?dataset=delimitation-parcellaire-des-aoc-viticoles`;
 const rows = 12;
@@ -174,6 +175,9 @@ class MainPage extends Component {
                     changeView={view => this.diviseScreen(view)}
                     searchMethod={this.setSearchMethod}
                   />
+                </Route>
+                <Route path="/about-us">
+                  <AboutUs />
                 </Route>
                 <Route path="/*">
                   <PageNotFound />
