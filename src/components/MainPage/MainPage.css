@@ -49,6 +49,7 @@
   @media screen and (min-width: 200px) and (max-width: 1079px) {
       .MainPage__left {
           height: 100%;
+          justify-content:flex-start;
       }  
       .MainPage__left--hide{
           display: none;
@@ -70,7 +71,7 @@
     width: 100%; 
     height: 100%;
     z-index: -1;
-    background-image: url(./images/bg-home.jpg);
+    background: url(./images/bg-home.jpg) no-repeat center;
     background-size: cover;
     filter: grayscale(70%) contrast(115%);
 }
@@ -91,7 +92,16 @@
     color: #F7F4E9;
 }
 
-.MainPage__left--hide .functions__wrapper {
+/* MEDIUM */
+@media screen and (min-width: 200px) and (max-width: 1079px) {
+    .functions__wrapper {
+        height: 100%;
+        position: fixed;
+        overflow-y: scroll;
+    }
+}
+
+    .MainPage__left--hide .functions__wrapper {
     display: none;
 }
 
