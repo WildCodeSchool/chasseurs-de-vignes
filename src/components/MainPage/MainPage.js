@@ -9,6 +9,7 @@ import Map from "../Map/Map";
 import Filter from "../Filter/Filter";
 import { Switch, Route } from "react-router-dom";
 import Loader from "../Loader/Loader";
+import PageNotFound from "../PageNotFound/PageNotFound";
 
 const apiURL = `https://plateforme.api-agro.fr/api/records/1.0/search/?dataset=delimitation-parcellaire-des-aoc-viticoles`;
 const rows = 12;
@@ -167,6 +168,9 @@ class MainPage extends Component {
                     afterClick={this.setCoords}
                     changeView={view => this.diviseScreen(view)}
                   />
+                </Route>
+                <Route path="/*">
+                  <PageNotFound />
                 </Route>
               </Switch>
             </div>
