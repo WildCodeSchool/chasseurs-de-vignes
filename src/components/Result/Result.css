@@ -12,11 +12,16 @@
     .Result {
         width: calc(50% - 10px);
     }
+  }
+
+/* MEDIUM */
+@media screen and (min-width: 1280px) {
     .MainPage__right--show  .Result {
         width: calc(33.33% - 10px);
         transition: 0.4s;
     }
   }
+
 .Result::after {
     border-radius: 5px;
     content: '';
