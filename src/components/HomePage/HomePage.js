@@ -15,12 +15,11 @@ class HomePage extends React.Component {
                     <b>Wine Note</b> a été conçu dans l'unique but d'assouvir vos soifs de vins et de connaissances du terroir français et ses Appellations Origines Contrôlés (AOC)
                 </p>
             </div>
-                <a href="/aboutus">
-                <div class="button_homepage">
+            <button className="button_homepage">
+                <Link to="/about-us">
                     À propos de Wine Note
-                </div>
-        
-            </a>
+                </Link>
+            </button>
         </div>
   )}
 };

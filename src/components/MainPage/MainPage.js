@@ -174,6 +174,9 @@ class MainPage extends Component {
                     searchMethod={this.setSearchMethod}
                   />
                 </Route>
+                <Route path="/about-us">
+                  <AboutUs />
+                </Route>
               </Switch>
             </div>
           </div>
