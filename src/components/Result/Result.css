@@ -44,12 +44,23 @@
     position: absolute;
     border-radius: 5px;
     margin: 10px;
-    padding: 5px 10px;
     top: 10px;
     right: 10px;
     background: #F7F4E9;
+    padding-right: 6px;
     z-index: 1;
     font-size: 13px;
+    line-height: 25px;
+    display: flex;
+}
+
+.Result__icon__km {
+    background: url(./images/user.png) center no-repeat #1E1E1E;
+    background-size: 13px;
+    height: 25px;
+    width: 30px;
+    margin-right: 6px;
+    border-radius: 2px 0px 0px 2px;
 }
 
 .Result__infos {

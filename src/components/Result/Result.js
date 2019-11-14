@@ -24,7 +24,15 @@ function Result({
   return (
     <div className="Result">
       <div className="Result__wrapper">
-        <p className="Result__km">{distance} km</p>
+        {distance > 1 ? (
+          <p className="Result__km">
+            <span className="Result__icon__km"></span> {distance} km
+          </p>
+        ) : (
+          <p className="Result__km">
+            <span className="Result__icon__km"></span> &lt; 1 km
+          </p>
+        )}
         <RandomImage />
         <div className="Result__infos">
           <h3 className="Result__title">AOC {denominati}</h3>
