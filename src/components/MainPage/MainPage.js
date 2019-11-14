@@ -144,6 +144,7 @@ class MainPage extends Component {
                   <SearchBar
                     afterClick={this.setCoords}
                     changeView={view => this.diviseScreen(view)}
+                    searchMethod={this.setSearchMethod}
                   />
                 </Route>
                 <Route path="/map">
@@ -170,6 +171,7 @@ class MainPage extends Component {
                   <GeoButton
                     afterClick={this.setCoords}
                     changeView={view => this.diviseScreen(view)}
+                    searchMethod={this.setSearchMethod}
                   />
                 </Route>
               </Switch>
@@ -178,8 +180,7 @@ class MainPage extends Component {
         </section>
         <section
           className={`MainPage__wrapper MainPage__right ${fullPage &&
-            `MainPage__right--hide`} ${!viewMethod &&
-            `MainPage__right--show`}`}
+            `MainPage__right--hide`} ${!viewMethod && `MainPage__right--show`}`}
         >
           <div className="button__arrow__wrapper">
             <button onClick={this.hideSearchMethod}></button>
@@ -191,24 +192,16 @@ class MainPage extends Component {
           )}
           {coords.latitude && (
             <>
-              {searchMethod === "map" ? (
-                <ResultsList
-                  coords={coords}
-                  results={aocs}
-                  isLoading={isLoading}
-                  currentRadius={radius}
-                  nbResults={totalResults}
-                  nameRegion={nameRegion}
-                />
-              ) : (
-                <ResultsList
-                  coords={coords}
-                  results={aocs}
-                  isLoading={isLoading}
-                  currentRadius={radius}
-                  nbResults={totalResults}
-                />
-              )}
+              <ResultsList
+                coords={coords}
+                results={aocs}
+                isLoading={isLoading}
+                currentRadius={radius}
+                nbResults={totalResults}
+                searchMethod={searchMethod}
+                nameRegion={nameRegion}
+              />
+
               <div className="results__options">
                 <Filter changeRadius={this.setRadius} currentRadius={radius} />
                 {totalResults && (

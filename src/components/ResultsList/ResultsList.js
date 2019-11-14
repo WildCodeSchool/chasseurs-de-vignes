@@ -8,18 +8,43 @@ function Results({
   coords: { latitude, longitude },
   nameRegion,
   currentRadius,
-  nbResults
+  nbResults,
+  searchMethod
 }) {
+  const whatSearchMethod = () => {
+    switch (searchMethod) {
+      case "map":
+        return (
+          <h3 class="results__title">
+            <span>{nbResults}</span>{" "}
+            <p>
+              AOC à -{currentRadius / 1000}km du point central de la région{" "}
+              {nameRegion}
+            </p>
+          </h3>
+        );
+      case "geolocation":
+        return (
+          <h3 class="results__title">
+            <span>{nbResults}</span>{" "}
+            <p>AOC à -{currentRadius / 1000}km de ma position</p>
+          </h3>
+        );
+      case "bar":
+        return (
+          <h3 class="results__title">
+            <span>{nbResults}</span>{" "}
+            <p>AOC à -{currentRadius / 1000}km de ma recherche</p>
+          </h3>
+        );
+    }
+  };
+
   return (
     <div className="ResultsList">
-      {!isLoading && 
-        <>
-        <h3 className="results__title">
-          <span>{nbResults} AOC</span>{" "}
-          <p> à -{currentRadius / 1000}km de ma recherche</p>
-        </h3>
       <div className="ResultsList__wrapper">
-        {results.length > 0 && (
+        {!isLoading && whatSearchMethod()}
+        {!isLoading && results.length > 0 && (
           <>
             {results.map((result, index) => (
               <Result
@@ -31,9 +56,8 @@ function Results({
             ))}
           </>
         )}
-        </div>
-        </>
-      }
+        }
+      </div>
     </div>
   );
 }
