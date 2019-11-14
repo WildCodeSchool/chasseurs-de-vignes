@@ -23,7 +23,8 @@ class SearchBar extends React.Component {
     event.preventDefault();
     const { latitude, longitude } = this.state.coords;
     this.props.afterClick({ latitude, longitude });
-    this.props.changeView(false)
+    this.props.changeView(false);
+    this.props.searchMethod("bar")
   }
 
   async getValue() {
@@ -41,13 +42,13 @@ class SearchBar extends React.Component {
     return this.state.aoc
       .filter(region => region.fields.geo_point_2d)
       .map(region => {
-        return `${region.fields.appellatio} - ${this.Capitalize(
+        return `${region.fields.appellatio} - ${this.capitalize(
           region.fields.new_nomcom
         )}`;
       });
   }
 
-  Capitalize(str) {
+  capitalize(str) {
     const words = str.split(/-| /);
     for (let i = 0; i < words.length; i++) {
       words[i] = words[i][0].toUpperCase() + words[i].substring(1);
@@ -62,7 +63,7 @@ class SearchBar extends React.Component {
       .filter(x => x.fields.geo_point_2d)
       .map(x => {
         if (
-          `${x.fields.appellatio} - ${this.Capitalize(x.fields.new_nomcom)}` ===
+          `${x.fields.appellatio} - ${this.capitalize(x.fields.new_nomcom)}` ===
           newValue
         ) {
           this.setState({
@@ -107,20 +108,31 @@ class SearchBar extends React.Component {
       onChange: this.onChange
     };
     return (
-        <form onSubmit={this.getResultat} className="functions__search__method">
-          <Autosuggest
-            name="AOC_Searched"
-            id="AOC_Searched"
-            suggestions={suggestions}
-            onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-            onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-            getSuggestionValue={this.getSuggestionValue}
-            renderSuggestion={renderSuggestion}
-            inputProps={inputProps}
-          />
-          <button type="submit" className="functions__search__submit"></button>
-        </form>
-     
+      <div>
+        {this.state.aoc.length > 0 ? (
+          <form
+            onSubmit={this.getResultat}
+            className="functions__search__method"
+          >
+            <Autosuggest
+              name="AOC_Searched"
+              id="AOC_Searched"
+              suggestions={suggestions}
+              onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+              onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+              getSuggestionValue={this.getSuggestionValue}
+              renderSuggestion={renderSuggestion}
+              inputProps={inputProps}
+            />
+            <button
+              type="submit"
+              className="functions__search__submit"
+            ></button>
+          </form>
+        ) : (
+          <div className="react-autosuggest__loader">Chargement ...</div>
+        )}
+      </div>
     );
   }
 }

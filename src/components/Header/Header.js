@@ -22,17 +22,21 @@ class Header extends Component {
     this.props.changeView(view);
   };
 
+  hideFull = view => {
+    this.props.hideFullPage(view);
+  };
+
   render() {
     const { isMobile } = this.state;
-    const { viewMethod } = this.props;
     return (
       <header className="Header">
-        <Logo />
+        <Logo changeView={view => this.hideSearchMethod(view)} />
         <Navbar
-              onBurgerButton={this.toggleMenu}
-              isMobile={isMobile}
-              changeView={(view) => this.hideSearchMethod(view)}
-            />
+          onBurgerButton={this.toggleMenu}
+          isMobile={isMobile}
+          changeView={view => this.hideSearchMethod(view)}
+          hideFullPage={view => this.hideFull(view)}
+        />
       </header>
     );
   }

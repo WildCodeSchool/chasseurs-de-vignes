@@ -1,7 +1,7 @@
 import React from "react";
 import "./GeoButton.css";
 
-function GeoButton({ afterClick, changeView }) {
+function GeoButton({ afterClick, changeView, searchMethod }) {
 
   const getPosition = () => {
     if (navigator.geolocation) {
@@ -9,6 +9,7 @@ function GeoButton({ afterClick, changeView }) {
         const { latitude, longitude } = position.coords;
         afterClick({ latitude, longitude });
         changeView(false)
+        searchMethod("geolocation")
       });
     } else {
       alert("Geolocation is not supported by this browser");

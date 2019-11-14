@@ -10,6 +10,7 @@ import Filter from "../Filter/Filter";
 import { Switch, Route } from "react-router-dom";
 import Loader from "../Loader/Loader";
 import PageNotFound from "../PageNotFound/PageNotFound";
+import HomePage from "../HomePage/HomePage";
 
 const apiURL = `https://plateforme.api-agro.fr/api/records/1.0/search/?dataset=delimitation-parcellaire-des-aoc-viticoles`;
 const rows = 12;
@@ -120,17 +121,20 @@ class MainPage extends Component {
       searchMethod,
       nameRegion
     } = this.state;
-    const { viewMethod } = this.props;
+    const { viewMethod, fullPage } = this.props;
 
     return (
       <main className="MainPage">
         <section
-          className={`MainPage__wrapper MainPage__left ${!viewMethod &&
-            `MainPage__left--hide`}`}
+          className={`MainPage__wrapper MainPage__left ${fullPage &&
+            `MainPage__left--full`} ${!viewMethod && `MainPage__left--hide`}`}
         >
           <div className="functions__wrapper">
             <div className="functions__wrapper__line">
               <Switch>
+                <Route exact path="/">
+                  <HomePage />
+                </Route>
                 <Route path="/search">
                   <h2 className="functions__title">Rechercher une AOC</h2>
                   <p className="functions__desc">
@@ -141,6 +145,7 @@ class MainPage extends Component {
                   <SearchBar
                     afterClick={this.setCoords}
                     changeView={view => this.diviseScreen(view)}
+                    searchMethod={this.setSearchMethod}
                   />
                 </Route>
                 <Route path="/map">
@@ -167,6 +172,7 @@ class MainPage extends Component {
                   <GeoButton
                     afterClick={this.setCoords}
                     changeView={view => this.diviseScreen(view)}
+                    searchMethod={this.setSearchMethod}
                   />
                 </Route>
                 <Route path="/*">
@@ -177,8 +183,8 @@ class MainPage extends Component {
           </div>
         </section>
         <section
-          className={`MainPage__wrapper MainPage__right ${!viewMethod &&
-            `MainPage__right--show`}`}
+          className={`MainPage__wrapper MainPage__right ${fullPage &&
+            `MainPage__right--hide`} ${!viewMethod && `MainPage__right--show`}`}
         >
           <div className="button__arrow__wrapper">
             <button onClick={this.hideSearchMethod}></button>
@@ -190,37 +196,29 @@ class MainPage extends Component {
           )}
           {coords.latitude && (
             <>
-              {searchMethod === "map" ? (
-                <ResultsList
-                  coords={coords}
-                  results={aocs}
-                  isLoading={isLoading}
-                  currentRadius={radius}
-                  nbResults={totalResults}
-                  nameRegion={nameRegion}
-                />
-              ) : (
-                <ResultsList
-                  coords={coords}
-                  results={aocs}
-                  isLoading={isLoading}
-                  currentRadius={radius}
-                  nbResults={totalResults}
-                />
-              )}
+              <ResultsList
+                coords={coords}
+                results={aocs}
+                isLoading={isLoading}
+                currentRadius={radius}
+                nbResults={totalResults}
+                searchMethod={searchMethod}
+                nameRegion={nameRegion}
+              />
+
+              <div className="results__options">
+                <Filter changeRadius={this.setRadius} currentRadius={radius} />
+                {totalResults && (
+                  <PageNavigation
+                    currentStart={currentStart}
+                    totalResults={totalResults}
+                    rows={rows}
+                    handleClick={action => this.handlePageClick(action)}
+                  />
+                )}
+              </div>
             </>
           )}
-          <div className="results__options">
-            <Filter changeRadius={this.setRadius} currentRadius={radius} />
-            {totalResults && (
-              <PageNavigation
-                currentStart={currentStart}
-                totalResults={totalResults}
-                rows={rows}
-                handleClick={action => this.handlePageClick(action)}
-              />
-            )}
-          </div>
         </section>
       </main>
     );

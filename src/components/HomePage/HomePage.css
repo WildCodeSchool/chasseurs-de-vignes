@@ -1,0 +1,25 @@
+.title_homepage {
+    font-style: italic;
+    font-family : 'Cinzel Decorative', cursive;
+    text-align: right;
+};
+
+.text_homepage {
+    font-size: 30px;
+}
+
+.span_homepage {
+    color: #C99A46;
+}
+
+.button_homepage {
+    background: #C99A46;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-size: 15px;
+    padding: 12px 0;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 5px;
+};

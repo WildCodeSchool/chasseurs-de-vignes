@@ -1,60 +1,63 @@
 .functions__search__method {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 0px;
-    margin: 25px;
-    margin-bottom: 5px;
-    background: #F7F4E9;
-    color: black;
-    position: relative;
-    text-align: left;
-    
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0px;
+  margin: 25px;
+  margin-bottom: 5px;
+  background: #f7f4e9;
+  color: black;
+  position: relative;
+  text-align: left;
 }
 
 .react-autosuggest__container input {
-    box-sizing: border-box;
-    width: 100%;
-    border:0;
-    font-size: 15px;
-    padding: 15px;
-    background: #F7F4E9;
+  box-sizing: border-box;
+  width: 100%;
+  border: 0;
+  font-size: 15px;
+  padding: 15px;
+  background: #f7f4e9;
 }
 
 .functions__search__submit {
-    border:0;
-    background:url(./images/search.png) center no-repeat #1E1E1E;
-    background-size: 15px;
-    padding: 0 30px;
-    border:1px solid #F7F4E9;
-    cursor: pointer;
-    height: 48px;
+  border: 0;
+  background: url(./images/search.png) center no-repeat #1e1e1e;
+  background-size: 15px;
+  padding: 0 30px;
+  border: 1px solid #f7f4e9;
+  cursor: pointer;
+  height: 48px;
 }
 
 .react-autosuggest__suggestions-container {
-    position: absolute;
-    height: auto;
-    max-height: 180px;
-    overflow-y: scroll;
-    background: #1E1E1E;
-    box-sizing: border-box;
-    border-radius: 0px 0px 5px 5px;
-    z-index: 10;
-    border-top: 0;
+  position: absolute;
+  height: auto;
+  max-height: 180px;
+  overflow-y: scroll;
+  background: #1e1e1e;
+  box-sizing: border-box;
+  border-radius: 0px 0px 5px 5px;
+  z-index: 10;
+  border-top: 0;
 }
 
 .react-autosuggest__suggestions-container ul {
-    margin: 0;
-    padding:0 10px;
+  margin: 0;
+  padding: 0 10px;
 }
 
 .react-autosuggest__suggestions-container ul li {
-    list-style: none;
-    cursor: pointer;
-    padding: 15px 10px 15px 10px;
-    border-top: 2px solid #333333;
-    color: #F7F4E9;
-    line-height: 25px;
+  list-style: none;
+  cursor: pointer;
+  padding: 15px 10px 15px 10px;
+  border-top: 2px solid #333333;
+  color: #f7f4e9;
+  line-height: 25px;
 }
-.react-autosuggest__suggestions-container ul li:nth-child(1){
-    border-top: 0;
+.react-autosuggest__suggestions-container ul li:nth-child(1) {
+  border-top: 0;
+}
+
+.react-autosuggest__loader {
+  font-family: "Cinzel Decorative", cursive;
 }

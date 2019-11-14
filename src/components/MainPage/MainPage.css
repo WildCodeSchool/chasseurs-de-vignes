@@ -65,6 +65,10 @@
     filter: grayscale(70%) contrast(115%);
 }
 
+.MainPage__left--full {
+    width: 100%;
+}
+
 .functions__wrapper {
     background: rgba(30, 30, 30, 0.7);
     width: 100%;
@@ -155,6 +159,10 @@
 
 .MainPage__right--show .button__arrow__wrapper  {
     margin-left: -10px;
+}
+
+.MainPage__right.MainPage__right--hide {
+    display: none;
 }
 
 .button__arrow__wrapper button {
