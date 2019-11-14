@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import "./HomePage.css";
 import { Link } from "react-router-dom";
@@ -11,6 +12,31 @@ class HomePage extends React.Component {
             Vous aspirez à consommer les meilleurs vins ?{" "}
             <span className="span_homepage">Wine Note</span> est là pour vous.
           </h1>
+=======
+import React from 'react';
+import './HomePage.css';
+import { Link } from "react-router-dom";
+
+class HomePage extends React.Component {
+    render () {
+      return (
+        <div className="homepage">
+            <div className="title_container">
+                <h1 className="title_homepage">
+                    Vous aspirez à consommer les meilleurs vins ? <span className="span_homepage">Wine Note</span> est là pour vous.
+                </h1>
+            </div>
+            <div className="text_container">
+                <p className="text_homepage">
+                    <b>Wine Note</b> a été conçu dans l'unique but d'assouvir vos soifs de vins et de connaissances du terroir français et ses Appellations Origines Contrôlés (AOC)
+                </p>
+            </div>
+            <button className="button_homepage">
+                <Link to="/about-us">
+                    À propos de Wine Note
+                </Link>
+            </button>
+>>>>>>> 1edf68965e07d0d45a4cc62c7be6e41735db52f7
         </div>
         <div className="text_container">
           <p className="text_homepage">
