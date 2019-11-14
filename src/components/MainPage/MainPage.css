@@ -227,6 +227,7 @@
 /* LARGE */
 @media screen and (min-width: 1080px) {
     .results__options {
+        transition: 0.4s;
         left: auto;
         right: 0;
         width: calc(50% - 60px);

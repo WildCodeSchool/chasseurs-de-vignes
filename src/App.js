@@ -11,7 +11,7 @@ class App extends Component {
     this.state = {
       viewMethod: true,
       fullPage: true
-    }
+    };
   }
   static propTypes = {
     match: PropTypes.object.isRequired,
@@ -22,13 +22,13 @@ class App extends Component {
   changeView = view => {
     this.setState({
       viewMethod: view
-    })
+    });
   };
 
   hideFull = view => {
     this.setState({
       fullPage: view
-    })
+    });
   };
   componentDidMount() {
     const { pathname } = this.props.location;
@@ -43,7 +43,7 @@ class App extends Component {
   componentDidUpdate() {
     const { pathname } = this.props.location;
     if (this.state.fullPage === false) {
-      if (pathname === "/" || pathname === "/aboutus") {
+      if (pathname === "/" || pathname === "/about-us") {
         this.setState({
           fullPage: true
         });
