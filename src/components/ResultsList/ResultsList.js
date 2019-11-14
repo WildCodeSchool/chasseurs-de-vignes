@@ -18,8 +18,7 @@ function Results({
           <h3 class="results__title">
             <span>{nbResults} AOC</span>
             <p>
-              à -{currentRadius / 1000}km du point central de la région
-              {nameRegion}
+              à -{currentRadius / 1000}km du point central de la région {nameRegion}
             </p>
           </h3>
         );

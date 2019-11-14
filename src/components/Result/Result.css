@@ -47,6 +47,11 @@
     font-size: 13px;
 }
 
+.Result__km img{
+    max-width: 20px;
+    max-height: 15px;
+}
+
 .Result__infos {
     position: absolute;
     border-radius: 0 0 5px 5px;
