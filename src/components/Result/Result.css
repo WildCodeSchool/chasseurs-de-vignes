@@ -4,6 +4,7 @@
     width: calc(100% - 10px);
     position: relative;
     transition: 0.4s;
+    overflow: hidden;
 }
 
 /* MEDIUM */

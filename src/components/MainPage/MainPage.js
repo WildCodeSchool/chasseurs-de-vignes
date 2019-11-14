@@ -9,6 +9,7 @@ import Map from "../Map/Map";
 import Filter from "../Filter/Filter";
 import { Switch, Route } from "react-router-dom";
 import Loader from "../Loader/Loader";
+import HomePage from "../HomePage/HomePage";
 
 const apiURL = `https://plateforme.api-agro.fr/api/records/1.0/search/?dataset=delimitation-parcellaire-des-aoc-viticoles`;
 const rows = 12;
@@ -130,6 +131,9 @@ class MainPage extends Component {
           <div className="functions__wrapper">
             <div className="functions__wrapper__line">
               <Switch>
+                <Route exact path="/">
+                  <HomePage />
+                </Route>
                 <Route path="/search">
                   <h2 className="functions__title">Rechercher une AOC</h2>
                   <p className="functions__desc">
