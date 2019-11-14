@@ -12,28 +12,28 @@ function Results({
 }) {
   return (
     <div className="ResultsList">
-      {!isLoading && 
+      {!isLoading && (
         <>
-        <h3 className="results__title">
-          <span>{nbResults} AOC</span>{" "}
-          <p> à -{currentRadius / 1000}km de ma recherche</p>
-        </h3>
-      <div className="ResultsList__wrapper">
-        {results.length > 0 && (
-          <>
-            {results.map((result, index) => (
-              <Result
-                key={latitude + longitude + index}
-                latitude={latitude}
-                longitude={longitude}
-                {...result.fields}
-              />
-            ))}
-          </>
-        )}
-        </div>
+          <h3 className="results__title">
+            <span>{nbResults} AOC</span>{" "}
+            <p> à -{currentRadius / 1000}km de ma recherche</p>
+          </h3>
+          <div className="ResultsList__wrapper">
+            {results.length > 0 && (
+              <>
+                {results.map((result, index) => (
+                  <Result
+                    key={latitude + longitude + index}
+                    latitude={latitude}
+                    longitude={longitude}
+                    {...result.fields}
+                  />
+                ))}
+              </>
+            )}
+          </div>
         </>
-      }
+      )}
     </div>
   );
 }

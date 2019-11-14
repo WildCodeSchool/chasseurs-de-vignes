@@ -20,14 +20,20 @@ function Result({
       }
     ) / 1000
   ).toFixed(1);
-
+  //("Coteaux Bourguignons ou Bourgogne grand ordinaire ou Bourgogne ordinaire");
   return (
     <div className="Result">
       <div className="Result__wrapper">
         <p className="Result__km">{distance} km</p>
         <RandomImage />
         <div className="Result__infos">
-          <h3 className="Result__title">AOC {denominati}</h3>
+          {console.log(denominati)}
+          <h3 className="Result__title">
+            {denominati ===
+            "Coteaux Bourguignons ou Bourgogne grand ordinaire ou Bourgogne ordinaire"
+              ? "AOC Coteaux Bourguignons"
+              : denominati}
+          </h3>
           <p className="Result__desc">{new_nomcom.toUpperCase()}</p>
         </div>
       </div>
