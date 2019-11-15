@@ -53,6 +53,19 @@ class MainPage extends Component {
     );
   };
 
+  componentWillReceiveProps(nextProps) {
+    const { fullPage } = this.props;
+    if (nextProps.fullPage !== fullPage) {
+      this.setState({
+        coords: {
+          latitude: null,
+          longitude: null
+        },
+        isLoading: true
+      });
+    }
+  }
+
   async fetchAocs(numberStart) {
     const numberStartPage = numberStart;
     const {
