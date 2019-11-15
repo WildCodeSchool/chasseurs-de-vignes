@@ -20,5 +20,5 @@
 .Loader__image {
     width: auto;
     height: 100px;
-    filter: grayscale(70%);
+    filter: hue-rotate(67deg);
 }

@@ -87,7 +87,7 @@ class AboutUs extends React.Component {
             </p>
           </div>
           <div className="AboutUs__credits">
-            Un projet réalisé par : <br /> Alex Le Coq, Antoine Ribeiro, Tanguy
+            Un projet réalisé par Alex Le Coq, Antoine Ribeiro, Tanguy
             Duponchelle et Frédéric Paurisse
           </div>
         </section>
