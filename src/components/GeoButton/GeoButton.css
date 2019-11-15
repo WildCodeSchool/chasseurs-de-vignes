@@ -11,9 +11,10 @@
     max-width: 300px;
     font-size: 16px;
     padding: 15px;
-    background: #1E1E1E;
-    border: 1px solid #F7F4E9;
+    background: #C99A46;
+    border: 0px;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .functions__geo__method button span {

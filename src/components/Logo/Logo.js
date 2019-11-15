@@ -10,7 +10,7 @@ function Logo({ changeView }) {
     <div className="Logo">
       <Link to="/" onClick={hideSearchMethod}>
         <div href="./" className="Logo__wrapper">
-          <span>LOGO</span>
+          <span></span>
         </div>
       </Link>
     </div>
