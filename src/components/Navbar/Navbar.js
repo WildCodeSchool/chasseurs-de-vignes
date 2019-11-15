@@ -1,27 +1,42 @@
 import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
+import "./Navbar.css";
+import { NavLink } from "react-router-dom";
 
-
-function Navbar({ isMobile, onBurgerButton }) {
-  const getMenuMobile = () => {
-    onBurgerButton(!isMobile);
-  }
+function Navbar({ changeView, hideFullPage }) {
+  const hideSearchMethod = () => {
+    changeView(true);
+    hideFullPage(false)
+  };
   return (
     <div className="Navbar">
-      <FontAwesomeIcon onClick={getMenuMobile} id="open-menu" icon={isMobile ? faTimes : faBars} />
-      <div className="Navbar">
-        <ul className={isMobile ? "Navbar-group Navbar-group--mobile" : "Navbar-group"}>
-          <li className="Navbar-group-item">
-            <a href="/public/index.html">Accueil</a>
-          </li>
-          <li className="Navbar-group-item">
-            <a href="/public/index.html">À propos</a>
-          </li>
-        </ul>
-      </div>
+      <ul className="Navbar__group">
+        <li className="Navbar__items__wrapper">
+          <NavLink
+            activeClassName="Navbar__items__link--active"
+            className="Navbar__items__link"
+            to="/search"
+            onClick={hideSearchMethod}
+          ></NavLink>
+        </li>
+        <li className="Navbar__items__wrapper">
+          <NavLink
+            activeClassName="Navbar__items__link--active"
+            className="Navbar__items__link"
+            to="/map"
+            onClick={hideSearchMethod}
+          ></NavLink>
+        </li>
+        <li className="Navbar__items__wrapper">
+          <NavLink
+            activeClassName="Navbar__items__link--active"
+            className="Navbar__items__link"
+            to="/geolocation"
+            onClick={hideSearchMethod}
+          ></NavLink>
+        </li>
+      </ul>
     </div>
-  )
+  );
 }
 
 export default Navbar;

@@ -1,0 +1,48 @@
+.HomePage {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.title_homepage {
+    font-family : 'Cinzel Decorative', cursive;
+    margin: 0;
+}
+
+.text_homepage {
+    padding:0 30px;
+    margin-top: 30px;
+}
+
+.span_homepage {
+    color: #C99A46;
+}
+
+.HomePage__button {
+    display: none;
+}
+
+/* MEDIUM */
+@media screen and (min-width: 200px) and (max-width: 1079px) {
+    .HomePage__button {
+        display: flex;
+        justify-content: center;
+        width: auto;
+        min-width: 250px;
+        font-size: 16px;
+        padding: 15px;
+        margin: 30px auto;
+        background: #C99A46;
+        border: 0px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    .HomePage__button span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #F7F4E9;
+        text-transform: uppercase;
+        font-size: 15px;
+    }
+}

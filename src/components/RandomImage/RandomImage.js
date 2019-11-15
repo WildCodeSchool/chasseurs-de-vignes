@@ -9,13 +9,11 @@ function RandomImage() {
   );
   return (
     <div className="RandomImage">
-      <div className="RandomImage-image-wrapper">
         <img
-          className="RandomImage-image"
+          className="RandomImage__image"
           src={`https://source.unsplash.com/600x400/?${images[one]},${images[two]},${images[three]},${images[four]}`}
           alt="images random"
         />
-      </div>
     </div>
   );
 }

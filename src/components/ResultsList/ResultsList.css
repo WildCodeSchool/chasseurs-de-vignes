@@ -1,11 +1,40 @@
-
 .ResultsList {
+    width: 100%;
+    display: inline-block;
     position: relative;
-    margin:0;
+    overflow-y: scroll;
+    padding:20px 20px 65px 20px;
+    box-sizing: border-box;
 }
 
 .ResultsList--hidden {
     opacity: 0;
     height: 0;
     overflow: hidden;
+}
+
+.results__title {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: 'Cinzel Decorative', cursive;
+    margin:5px 5px 20px 5px;
+}
+
+.results__title span {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: normal;
+    background: #1E1E1E;
+    height: 30px;
+    line-height: 30px;
+    color: #F7F4E9;
+    padding:5px 13px 0px 13px;
+    margin-right: 15px;
+    display: flex;
+    flex-shrink: 0;
+}
+
+.results__title p {
+    margin: 0;
 }

@@ -1,0 +1,9 @@
+.PageNotFound{
+    display: flex;
+    flex-direction: column;
+}
+
+.PageNotFound__image{
+    width: 100%;
+    border-radius: 5px;
+}
