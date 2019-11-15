@@ -182,7 +182,8 @@ class MainPage extends Component {
                 </Route>
                 <Route path="/geolocation">
                   <h2 className="functions__title">
-                    Allez viens, je t'emmène au{" "}
+                    Allez viens,
+                    <br /> je t'emmène au{" "}
                     <span className="aoc__color">vin</span>
                   </h2>
                   <p className="functions__desc">
@@ -207,7 +208,10 @@ class MainPage extends Component {
           </div>
         </section>
         {fullPage && (
-          <section className={`MainPage__wrapper MainPage__right MainPage__right--about ${!viewMethod && `MainPage__right--show`}`}>
+          <section
+            className={`MainPage__wrapper MainPage__right MainPage__right--about ${!viewMethod &&
+              `MainPage__right--show`}`}
+          >
             <AboutUs />
           </section>
         )}
@@ -215,9 +219,11 @@ class MainPage extends Component {
           className={`MainPage__wrapper MainPage__right ${fullPage &&
             `MainPage__right--hide`} ${!viewMethod && `MainPage__right--show`}`}
         >
-          <div className="button__arrow__wrapper">
-            <button onClick={this.hideSearchMethod}></button>
-          </div>
+          {coords.latitude && (
+            <div className="button__arrow__wrapper">
+              <button onClick={this.hideSearchMethod}></button>
+            </div>
+          )}
           {isLoading && (
             <div className="Loader__content">
               <Loader />

@@ -21,7 +21,7 @@ function PageNavigation(props) {
           onClick={prevActionClick}
         ></button>
       )}
-      {currentStart + rows > !totalResults && (
+      {currentStart + rows < totalResults && (
         <button
           className="PageNavigation__button--next"
           onClick={nextActionClick}
