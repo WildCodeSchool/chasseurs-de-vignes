@@ -182,7 +182,8 @@ class MainPage extends Component {
                 </Route>
                 <Route path="/geolocation">
                   <h2 className="functions__title">
-                    Allez viens, je t'emmène au{" "}
+                    Allez viens,
+                    <br /> je t'emmène au{" "}
                     <span className="aoc__color">vin</span>
                   </h2>
                   <p className="functions__desc">
