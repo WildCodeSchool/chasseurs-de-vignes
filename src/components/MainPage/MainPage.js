@@ -155,7 +155,7 @@ class MainPage extends Component {
                   </h2>
                   <p className="functions__desc">
                     Tu connais le nom de ton AOC et tu cherches sa localité dans
-                    notre Belle France ? Écris son nom ici mais sois pinard, on
+                    notre Belle France ? Écris-le ici et sois pinard, on
                     s'occupe du reste !
                   </p>
                   <SearchBar

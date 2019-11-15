@@ -20,7 +20,7 @@ class HomePage extends React.Component {
         </h1>
         <p className="text_homepage">
           <b>Wine Note</b> a été conçu dans l'unique but d'assouvir vos soifs de
-          vins et de connaissances du terroir français et ses AOC.
+          vins et de connaissances du terroir français et de ses AOC.
         </p>
         <button onClick={this.changeViewHome} className="HomePage__button">
           <span>À propos de Wine Note</span>
