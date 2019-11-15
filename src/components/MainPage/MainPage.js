@@ -137,7 +137,7 @@ class MainPage extends Component {
                   <HomePage />
                 </Route>
                 <Route path="/search">
-                  <h2 className="functions__title">Rechercher une AOC</h2>
+                  <h2 className="functions__title">Rechercher une <span className="aoc_color">AOC</span></h2>
                   <p className="functions__desc">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     At, voluptate! Illo beatae voluptatem, qui explicabo modi,
@@ -150,7 +150,7 @@ class MainPage extends Component {
                   />
                 </Route>
                 <Route path="/map">
-                  <h2 className="functions__title">Rechercher une AOC</h2>
+                  <h2 className="functions__title">Rechercher une <span className="aoc_color">AOC</span></h2>
                   <p className="functions__desc">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     At, voluptate! Illo beatae voluptatem, qui explicabo modi,
@@ -164,7 +164,7 @@ class MainPage extends Component {
                   />
                 </Route>
                 <Route path="/geolocation">
-                  <h2 className="functions__title">Rechercher une AOC</h2>
+                  <h2 className="functions__title">Rechercher une <span className="aoc_color">AOC</span></h2>
                   <p className="functions__desc">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     At, voluptate! Illo beatae voluptatem, qui explicabo modi,
