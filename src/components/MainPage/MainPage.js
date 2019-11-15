@@ -150,11 +150,13 @@ class MainPage extends Component {
                   <HomePage />
                 </Route>
                 <Route path="/search">
-                  <h2 className="functions__title">Rechercher une <span className="aoc_color">AOC</span></h2>
+                  <h2 className="functions__title">
+                    Tape m'en <span className="aoc__color">vin</span> !
+                  </h2>
                   <p className="functions__desc">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    At, voluptate! Illo beatae voluptatem, qui explicabo modi,
-                    ratione repudiandae pariatur vel iusto est?
+                    Tu connais le nom de ton AOC et tu cherches sa localité dans
+                    notre Belle France ? Écris son nom ici mais sois pinard, on
+                    s'occupe du reste !
                   </p>
                   <SearchBar
                     afterClick={this.setCoords}
@@ -163,11 +165,13 @@ class MainPage extends Component {
                   />
                 </Route>
                 <Route path="/map">
-                  <h2 className="functions__title">Rechercher une <span className="aoc_color">AOC</span></h2>
+                  <h2 className="functions__title">
+                    La Carte des <span className="aoc__color">Vins</span>
+                  </h2>
                   <p className="functions__desc">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    At, voluptate! Illo beatae voluptatem, qui explicabo modi,
-                    ratione repudiandae pariatur vel iusto est?
+                    Tu es curieux de savoir quelles AOC sont présentes dans une
+                    région française spécifique ? Cépage la mer à boire, il
+                    suffit de cliquer sur la carte !
                   </p>
                   <Map
                     afterClick={this.setCoords}
@@ -177,11 +181,14 @@ class MainPage extends Component {
                   />
                 </Route>
                 <Route path="/geolocation">
-                  <h2 className="functions__title">Rechercher une <span className="aoc_color">AOC</span></h2>
+                  <h2 className="functions__title">
+                    Allez viens, je t'emmène au{" "}
+                    <span className="aoc__color">vin</span>
+                  </h2>
                   <p className="functions__desc">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    At, voluptate! Illo beatae voluptatem, qui explicabo modi,
-                    ratione repudiandae pariatur vel iusto est?
+                    Tu veux connaître les AOC de ta région ? <br />
+                    Géolocalise-toi et... TANIN, elles apparaissent comme par
+                    magie autour de toi !
                   </p>
                   <GeoButton
                     afterClick={this.setCoords}
@@ -199,10 +206,11 @@ class MainPage extends Component {
             </div>
           </div>
         </section>
-        {fullPage && 
+        {fullPage && (
           <section className="MainPage__wrapper MainPage__right MainPage__right--about">
             <AboutUs />
-          </section>}
+          </section>
+        )}
         <section
           className={`MainPage__wrapper MainPage__right ${fullPage &&
             `MainPage__right--hide`} ${!viewMethod && `MainPage__right--show`}`}

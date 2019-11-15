@@ -4,10 +4,12 @@
 
 .Filter button {
     background: #1E1E1E;
+    transition: 0.2s;
 }
 
 .Filter button:hover {
     background: #C99A46;
+    transition: 0.2s;
 }
 
 .Filter span {

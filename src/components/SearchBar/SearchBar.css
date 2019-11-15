@@ -4,6 +4,7 @@
   padding: 0 0px;
   margin: 25px;
   margin-bottom: 5px;
+  border-radius: 5px;
   background: #f7f4e9;
   color: black;
   position: relative;
@@ -16,6 +17,7 @@
   border: 0;
   font-size: 15px;
   padding: 15px;
+  border-radius: 5px;
   background: #f7f4e9;
 }
 
@@ -24,7 +26,8 @@
   background: url(./images/search.png) center no-repeat #C99A46;
   background-size: 15px;
   padding: 0 30px;
-  border: 1px solid #f7f4e9;
+  border: 0px;
+  border-radius: 0 5px 5px 0;
   cursor: pointer;
   height: 48px;
 }

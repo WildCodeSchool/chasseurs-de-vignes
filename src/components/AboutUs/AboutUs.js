@@ -1,9 +1,9 @@
 import React from "react";
 import "./AboutUs.css";
 
-const TireBouchon = "https://image.flaticon.com/icons/svg/83/83506.svg";
-const GrapeBottle = "https://image.flaticon.com/icons/svg/87/87089.svg";
-const Groupe = "https://image.flaticon.com/icons/svg/15/15659.svg";
+const TireBouchon = require("./images/wine_opener.png");
+const GrapeBottle = require("./images/wine.png");
+const Groupe = require("./images/success.png");
 
 class AboutUs extends React.Component {
   render() {

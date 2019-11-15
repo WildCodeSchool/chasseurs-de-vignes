@@ -12,10 +12,6 @@
     overflow: scroll;
 }
 
-.aoc_color{
-    color: #C99A46;
-}
-
 /* LARGE */
 @media screen and (min-width: 1080px) {
     .MainPage {
@@ -92,6 +88,10 @@
     justify-content: center;
     text-align: center;
     color: #F7F4E9;
+}
+
+.aoc__color{
+    color: #C99A46;
 }
 
 /* MEDIUM */
