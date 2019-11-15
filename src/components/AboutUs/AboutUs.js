@@ -9,9 +9,9 @@ class AboutUs extends React.Component {
   render() {
     return (
       <div className="AboutUs">
-        <h1 className="Title--aboutus">QU'EST-CE QUE WINE NOTE ?</h1>
-        <img className="Image--aboutus" src={TireBouchon} alt="tireBouchon" />
-        <p className="Text--aboutus">
+        <h1 className="title--aboutus">WINE NOTE, C'EST QUOI ?</h1>
+        <img className="image--aboutus" src={TireBouchon} alt="tireBouchon" />
+        <p className="text--aboutus">
           Aujourd’hui, la philosophie des consommateurs est en plein
           bouleversement face aux défis écologiques que l’humanité va devoir
           relever à l’avenir. En France, la consommation de vin est ancrée dans
@@ -26,11 +26,11 @@ class AboutUs extends React.Component {
           appellations protégées de nos régions.
         </p>
 
-        <h1 className="Title--aboutus">
+        <h1 className="title--aboutus">
           POURQUOI PARLER D'AOC EN TERME DE VIN EST-IL IMPORTANT ?
         </h1>
-        <img className="Image--aboutus" src={GrapeBottle} alt="Grapebottle" />
-        <p className="Text--aboutus">
+        <img className="image--aboutus" src={GrapeBottle} alt="Grapebottle" />
+        <p className="text--aboutus">
           Cette désignation spécifique à la France est un gage de qualité
           premier sur un produit puisque ce label signifie que toutes les étapes
           de fabrication d’un vin ont été réalisées dans la même zone
@@ -45,8 +45,8 @@ class AboutUs extends React.Component {
         <h1 className="Title--aboutus">
           QUI SONT LES MEMBRES DE L'ÉQUIPE DE DÉVELOPPEMENT DE WINE NOT ?
         </h1>
-        <img className="Image--aboutus" src={Groupe} alt="Groupe" />
-        <p className="Text--aboutus">
+        <img className="image--aboutus" src={Groupe} alt="Groupe" />
+        <p className="text--aboutus">
           Wine Note est une application en avance sur les technologies modernes
           et réalisée par une équipe de jeunes talents prometteurs de la scène
           numérique française. Ayant fait leurs armes au cœur de la French Tech
@@ -56,15 +56,8 @@ class AboutUs extends React.Component {
           l’incroyable start-up 5team ou encore Clearnox, l’expert des
           créanciers 2.0.
         </p>
-        <h2 className="Name--aboutus">
-          <br />
-          Tanguy DUPONCHELLE
-          <br />
-          Antoine RIBEIRO
-          <br />
-          Frédéric PAURISSE
-          <br />
-          Alex' LE COQ
+        <h2 className="name--aboutus">
+          Tanguy DUPONCHELLE - Antoine RIBEIRO - Frédéric PAURISSE - Alex' LE COQ
         </h2>
       </div>
     );
