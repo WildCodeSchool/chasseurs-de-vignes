@@ -1,0 +1,27 @@
+.functions__geo__method {
+    display: flex;
+    justify-content: center;
+    padding: 0 30px;
+    margin-top: 25px;
+    margin-bottom: 5px;
+}
+
+.functions__geo__method button {
+    width: 100%;
+    max-width: 300px;
+    font-size: 16px;
+    padding: 15px;
+    background: #C99A46;
+    border: 0px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.functions__geo__method button span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #F7F4E9;
+    text-transform: uppercase;
+    font-size: 15px;
+}

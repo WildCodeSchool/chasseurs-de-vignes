@@ -1,0 +1,14 @@
+.Header {
+    background: #0A1612;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+/* LARGE */
+@media screen and (min-width: 1080px) {
+    .Header {
+        flex-direction: column;
+    }
+  }

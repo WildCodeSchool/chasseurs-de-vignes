@@ -1,0 +1,22 @@
+.Logo__wrapper {
+    background: #F7F4E9;
+    padding: 5px;
+    box-sizing: border-box;
+    text-decoration: none;
+    color:#1E1E1E;
+}
+
+.Logo__wrapper span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 90px;
+    box-sizing: border-box;
+    border:1px solid #1E1E1E;
+    text-align: center;
+    font-size: 14px;
+    background: url('./logo-wine-def-version.png') #F7F4E9;
+    background-size: contain;
+    
+}

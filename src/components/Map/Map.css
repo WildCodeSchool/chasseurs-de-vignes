@@ -1,0 +1,15 @@
+.functions__map__method {
+    display: flex;
+    padding: 0px;
+    margin: 25px auto 5px auto;
+    max-width: 350px;
+}
+
+.svg-map__location {
+    fill: #F7F4E9 !important;
+    cursor: pointer !important;
+}
+    .svg-map__location:focus, .svg-map__location:hover {
+      fill: #C99A46 !important;
+      outline: 0 !important; }
+   
