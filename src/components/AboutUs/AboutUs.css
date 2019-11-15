@@ -1,21 +1,28 @@
-.Title--aboutus  {
-    text-align: center;
-    margin: 30px;
-  }
-  
-.Text--aboutus {
-    text-align: justify;
-    font-size: 120%;
-    margin: 30px;
-  }
-  
-.Image--aboutus {
-    width: 10%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.AboutUs {
+  padding:30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
+}
 
-.Name--aboutus {
-    margin: 40px;
+.AboutUs__wrapper {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding:15px 30px 15px 0;
+  position: relative;
+}
+
+.AboutUs__link {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.AboutUs__wrapper__image {
+  width: 50px;
+  margin:0 30px 0 0;
 }

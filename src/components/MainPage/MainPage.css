@@ -77,8 +77,6 @@
 }
 
 .MainPage__left--full {
-    transition: 0s !important;
-    width: 100%;
 }
 
 .functions__wrapper {
@@ -177,6 +175,10 @@
     }
   }
 
+.MainPage__right--about {
+    overflow-y: scroll;
+}
+
 .button__arrow__wrapper {
     display: flex;
     align-items: center;
@@ -236,7 +238,6 @@
 .results__options {
     height: auto;
     background: #F7F4E9;
-    box-shadow: 0px 0px 10px #1E1E1E;
     z-index: 10;
     position: fixed;
     bottom: 0;

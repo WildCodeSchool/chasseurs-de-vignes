@@ -30,6 +30,7 @@ class App extends Component {
       fullPage: view
     });
   };
+
   componentDidMount() {
     const { pathname } = this.props.location;
     if (this.state.fullPage === true) {
@@ -43,13 +44,14 @@ class App extends Component {
   componentDidUpdate() {
     const { pathname } = this.props.location;
     if (this.state.fullPage === false) {
-      if (pathname === "/" || pathname === "/about-us") {
+      if (pathname === "/") {
         this.setState({
           fullPage: true
         });
       }
     }
   }
+  
   render() {
     const { viewMethod, fullPage } = this.state;
 

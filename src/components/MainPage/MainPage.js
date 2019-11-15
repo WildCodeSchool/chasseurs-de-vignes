@@ -199,6 +199,10 @@ class MainPage extends Component {
             </div>
           </div>
         </section>
+        {fullPage && 
+          <section className="MainPage__wrapper MainPage__right MainPage__right--about">
+            <AboutUs />
+          </section>}
         <section
           className={`MainPage__wrapper MainPage__right ${fullPage &&
             `MainPage__right--hide`} ${!viewMethod && `MainPage__right--show`}`}
