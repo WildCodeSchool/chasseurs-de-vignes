@@ -6,6 +6,10 @@
     background: #1E1E1E;
 }
 
+.Filter button:hover {
+    background: #C99A46;
+}
+
 .Filter span {
     border:1px solid #1E1E1E;
     display: flex;
