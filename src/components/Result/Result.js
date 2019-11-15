@@ -22,15 +22,22 @@ function Result({
   ).toFixed(1);
 
   return (
-    <div
-      className="ResultsList__items col-12 col-sm-6 col-md-4 col-lg-3 no-padding"
-      key={id}
-    >
-      <p className="Result-km">{distance} km</p>
-      <RandomImage />
-      <div className="Result-infos">
-        <h3 className="Result-infos-title">AOC {denominati}</h3>
-        <p className="Result-infos-desc">{new_nomcom.toUpperCase()}</p>
+    <div className="Result">
+      <div className="Result__wrapper">
+        {distance > 1 ? (
+          <p className="Result__km">
+            <span className="Result__icon__km"></span> {distance} km
+          </p>
+        ) : (
+          <p className="Result__km">
+            <span className="Result__icon__km"></span> &lt; 1 km
+          </p>
+        )}
+        <RandomImage />
+        <div className="Result__infos">
+          <h3 className="Result__title">AOC {denominati}</h3>
+          <p className="Result__desc">{new_nomcom.toUpperCase()}</p>
+        </div>
       </div>
     </div>
   );

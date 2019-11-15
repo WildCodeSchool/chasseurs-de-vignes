@@ -1,0 +1,23 @@
+.PageNavigation__button--prev {
+    background: url(./images/arrow.png) center no-repeat #1E1E1E;
+    background-size: 10px;
+    transition: 0.2s;
+}
+
+.PageNavigation__button--next {
+    background: url(./images/arrow_r.png) center no-repeat #1E1E1E;
+    background-size: 10px;
+    transition: 0.2s;
+}
+
+.PageNavigation__button--next:hover{
+    background: url(./images/arrow_r.png) center no-repeat #C99A46;
+    background-size: 10px;
+    transition: 0.2s;
+}
+
+.PageNavigation__button--prev:hover {
+    background: url(./images/arrow.png) center no-repeat #C99A46;
+    background-size: 10px;
+    transition: 0.2s;
+}

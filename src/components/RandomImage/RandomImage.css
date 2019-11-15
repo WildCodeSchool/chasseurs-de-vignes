@@ -1,28 +1,4 @@
-.RandomImage {
-    margin: 10px;
-    padding: 0;
-    position: relative;
-}
-
-.RandomImage-image-wrapper:after {
-    border-radius: 5px;
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    box-shadow: inset 0px 0px 100px black;
-}
-
-.RandomImage-image-wrapper {
-  width: 100%;
-  padding-top: 66.66%;
-  background: url(./images/image-placeholder.jpg) no-repeat center #DDDDDD;
-  background-size: contain;
-}
-
-.RandomImage-image {
+.RandomImage__image {
     position: absolute;
     top: 0;
     border-radius: 5px;

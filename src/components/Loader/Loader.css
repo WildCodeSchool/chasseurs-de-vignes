@@ -2,6 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
+    width: 100%;
 }
 
 .Loader__wrapper {
@@ -18,4 +20,5 @@
 .Loader__image {
     width: auto;
     height: 100px;
+    filter: hue-rotate(67deg);
 }

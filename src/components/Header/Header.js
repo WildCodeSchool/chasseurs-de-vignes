@@ -9,28 +9,34 @@ class Header extends Component {
     this.state = {
       isMobile: false
     };
-    this.toggleMenu = this.toggleMenu.bind(this)
+    this.toggleMenu = this.toggleMenu.bind(this);
   }
-  
+
   toggleMenu(isMobile) {
     this.setState({
       isMobile
-    })
+    });
   }
+
+  hideSearchMethod = view => {
+    this.props.changeView(view);
+  };
+
+  hideFull = view => {
+    this.props.hideFullPage(view);
+  };
 
   render() {
     const { isMobile } = this.state;
     return (
-      <header className="row">
-        <div className="col-12 no-padding">
-          <div className={isMobile ? "Header Header--mobile" : "Header"}>
-            <Logo />
-            <Navbar
-              onBurgerButton={this.toggleMenu}
-              isMobile={isMobile}
-            />
-          </div>
-        </div>
+      <header className="Header">
+        <Logo changeView={view => this.hideSearchMethod(view)} />
+        <Navbar
+          onBurgerButton={this.toggleMenu}
+          isMobile={isMobile}
+          changeView={view => this.hideSearchMethod(view)}
+          hideFullPage={view => this.hideFull(view)}
+        />
       </header>
     );
   }
