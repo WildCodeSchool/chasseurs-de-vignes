@@ -147,7 +147,7 @@ class MainPage extends Component {
             <div className="functions__wrapper__line">
               <Switch>
                 <Route exact path="/">
-                  <HomePage />
+                  <HomePage changeView={view => this.diviseScreen(view)} />
                 </Route>
                 <Route path="/search">
                   <h2 className="functions__title">
@@ -207,7 +207,7 @@ class MainPage extends Component {
           </div>
         </section>
         {fullPage && (
-          <section className="MainPage__wrapper MainPage__right MainPage__right--about">
+          <section className={`MainPage__wrapper MainPage__right MainPage__right--about ${!viewMethod && `MainPage__right--show`}`}>
             <AboutUs />
           </section>
         )}

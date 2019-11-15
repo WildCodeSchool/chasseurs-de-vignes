@@ -76,9 +76,6 @@
     filter: grayscale(70%) contrast(115%);
 }
 
-.MainPage__left--full {
-}
-
 .functions__wrapper {
     background: rgba(30, 30, 30, 0.7);
     width: 100%;
