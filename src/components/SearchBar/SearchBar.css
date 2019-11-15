@@ -41,6 +41,10 @@
   border-top: 0;
 }
 
+.react-autosuggest__suggestions-container--open{
+  width: 100%;
+}
+
 .react-autosuggest__suggestions-container ul {
   margin: 0;
   padding: 0 10px;
