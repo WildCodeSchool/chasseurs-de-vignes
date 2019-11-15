@@ -32,6 +32,10 @@
   height: 48px;
 }
 
+.react-autosuggest__suggestions-container--open {
+  width: 100%;
+}
+
 .react-autosuggest__suggestions-container {
   position: absolute;
   height: auto;
